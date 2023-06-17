@@ -1,12 +1,16 @@
-import Navbar from './components/Login/Navbar';
-import Login from './components/Login/Login';
-import './App.css';
+// import Navbar from './components/Login/Navbar';
+// import Login from './components/Login/Login';
+import Home from "./components/Home/Home"; 
 
 function App (){
   return(
     <>
-      <Navbar/>
-      <Login/>
+      {/* Seccion uno
+        <Navbar/>
+        <Login/> 
+      */}
+
+      <Home/>
     </>
   )
 }
