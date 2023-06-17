@@ -1,28 +1,30 @@
 import React from "react"
 import './Login.css'
+import logo from '../../assets/login.svg'
 
 const Login = () => {
     return (
-        <>
-            <div className="container" >
-                <div className="container login-container">
-                    <div className="user-icon">
-                        <img src="" alt="user image" />
-                        <h3>Login</h3>
-                    </div>
-                    <div className="inputs">
-                        <input type="email" name="" id="" placeholder="user" />
-                        <br />
-                        <input type="password" name="" id="" placeholder="password" />
-                        <br />
-                        <input type="button" value="Entrar" />
-                        <p>
-                            <a href="#">¿Olvido su contraseña?</a>
-                        </p>
-                    </div>
-                </div>
+
+        <div className="container login-container">
+            <div className="user-icon">
+                <img src={logo} />
             </div>
-        </>
+            <div className="inputs">
+                <h3>Login</h3>
+                <input type="email" placeholder="USER" />
+                <br />
+                <input type="password" placeholder="PASSWORD" />
+                <br />
+                <input type="button" className="btn" value="Iniciar Sesion" id="btn-login" />
+            </div>
+            <div className="mensajes">
+                <a href="#">¿Olvido su contraseña?</a>
+                <br />
+                <a href="#">Registrarte</a>
+            </div>
+            <br /> <br />
+        </div>
+
     );
 };
 
