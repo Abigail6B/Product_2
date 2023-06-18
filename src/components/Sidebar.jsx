@@ -40,7 +40,7 @@ export const Sidebar = () => {
       <nav className="mt-2" >
         <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li className="nav-item">
-            <Link to="" className="nav-link">
+            <Link to="/Productos" className="nav-link">
               <i style={letras} className="fas fa-list-alt"> </i>
               <p style={letras}>
                 Productos
@@ -56,7 +56,7 @@ export const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="" className="nav-link">
+            <Link to="/Usuarios" className="nav-link">
               <i style={letras} className="fas fa-users"></i>
               <p style={letras}>
                 Usuarios
@@ -80,7 +80,7 @@ export const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="" className="nav-link">
+            <Link to="/" className="nav-link">
               <i style={letras} className="fas fa-book-open"></i>
               <p style={letras}>
                 Categorias

@@ -7,6 +7,10 @@ export const Content = () => {
     const azul={
         background:'#83C5BE'
     }
+    
+    const icon={
+        color:'#83C5BE'
+    }
   return (
     <>
     <div className="content-wrapper">
@@ -82,8 +86,8 @@ export const Content = () => {
                             <td>Entrada</td>
                             <td>16/06/2023</td>
                             <td>
-                                <i className="fas fa-trash-alt text-red" alt="bote de basura"></i>
-                                <i className="fas fa-pen"></i>
+                            <i className="fas fa-trash-alt" alt="bote de basura" style={icon}></i>
+                             <i className="fas fa-pen"style={icon}></i>
                             </td>
                         </tr>
                        
