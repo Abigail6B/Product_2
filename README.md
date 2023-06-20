@@ -1,21 +1,24 @@
 # Producto 2 *Muebleria DAF*
 
 
-Este proyecto usa Vite
+Este proyecto usa Vite React
 
 
 Para poder compilar el proyecto primero instala las dependecias con el siguiente comando:
     
-    npm install
+    $ npm install
 
-Después deberías poder correr el proyecto con
+Para compilarlo ejecuta:
     
-    npm run dev
+    $ npm run dev
 
 Resultados final:
 
+* Login
+![Login](/img/lg1.png)
 
-![Login](img/log1.png)
+* Home
+![home](/img/home1.png)
 
-
-![home](img/hom1.png)
+* Informes
+![Informe](/img/informe1.png)
