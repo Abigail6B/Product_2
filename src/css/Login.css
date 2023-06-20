@@ -1,0 +1,39 @@
+body {
+  display: inline;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.login-container {
+  box-sizing: border-box;
+  padding: -20%;
+  margin-top: 5%;
+  background-color: #ffddd2;
+}
+
+.user-icon {
+  display: block;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  transform: translate(0, -50%);
+}
+
+.inputs {
+  text-align: center;
+}
+
+.inputs input {
+  margin-bottom: 1%;
+}
+
+#btn-login {
+  width: 250px;
+  background-color: #83c5be;
+  color: #ffffff;
+}
+
+.mensajes {
+  display: inline;
+}

@@ -7,10 +7,10 @@ import Footer from './Footer'
 const Usuarios_view = () => {
   return (
     <>
-    <Navbar/>
-    <Aside/>
-    <Usuarios/>
-    <Footer />
+      <Navbar />
+      <Aside />
+      <Usuarios />
+      <Footer />
     </>
   )
 }

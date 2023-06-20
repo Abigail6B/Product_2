@@ -8,10 +8,13 @@ import React from 'react'
 const Categorias_view = () => {
   return (
     <>
-    <Navbar />
-    <Sidebar />
-    <Categorias />
-    <Footer />
+      <Navbar />
+      <Sidebar />
+      <div className='row col-12 justify-content-center'>
+        <Categorias />
+        <Footer />
+      </div>
+
     </>
   )
 }

@@ -7,10 +7,10 @@ import Usuarios from './Usuarios'
 const Usuarios_view = () => {
   return (
     <>
-    <Navbar />
-    <Sidebar />
-    <Usuarios/>
-    <Footer />
+      <Navbar />
+      <Sidebar />
+      <Usuarios />
+      <Footer />
     </>
   )
 }
