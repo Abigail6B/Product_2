@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import { Navbar } from './Navbar'
 import { Footer } from './Footer'
 import Home from './Home'
@@ -17,3 +18,17 @@ export default function Home_view() {
         </>
     )
 }
+=======
+import Home from './Home';
+
+
+const Home_view = () => {
+  return (
+    <>
+        <Home />
+    </>
+  )
+}
+
+export default Home_view;
+>>>>>>> Abigail

@@ -2,6 +2,15 @@ import React from 'react'
 
 function Productos_geren() {
 
+<<<<<<< HEAD
+=======
+  const  rosa={
+    background:'#FFDDD2',
+  }
+  const azul={
+    background:'#83C5BE'
+  }
+>>>>>>> Abigail
   return (
     <>
       <div className="content-wrapper">
@@ -25,8 +34,13 @@ function Productos_geren() {
           <div className="card">
             <div className="card-body card-info">
               <table className="table table-bordered table-hover table-striped" id="table">
+<<<<<<< HEAD
                 <thead>
                   <tr className="text-center">
+=======
+                <thead style={azul}>
+                  <tr>
+>>>>>>> Abigail
                     <th>No.</th>
                     <th>Código</th>
                     <th>Marca</th>
@@ -34,12 +48,23 @@ function Productos_geren() {
                     <th>Color</th>
                     <th>Material</th>
                     <th>Unidades</th>
+<<<<<<< HEAD
                     <th>Precio</th>
+=======
+                    <th>Dimensiones</th>
+                    <th>Precio</th>
+                    <th>Descripcion</th>
+                    <th>Fecha</th>
+>>>>>>> Abigail
                     <th>Fotografía</th>
 
                   </tr>
                 </thead>
+<<<<<<< HEAD
                 <tbody className="text-center">
+=======
+                <tbody style={rosa}>
+>>>>>>> Abigail
                   <tr>
                     <td>1</td>
                     <td>SN_7821</td>
@@ -48,7 +73,14 @@ function Productos_geren() {
                     <td>Cafe ocre</td>
                     <td>Porcelanico</td>
                     <td>23</td>
+<<<<<<< HEAD
                     <td>20853</td>
+=======
+                    <td>23cm x 50cm</td>
+                    <td>20853</td>
+                    <td>Madera de buena calidad...</td>
+                    <td>26/07/2023</td>
+>>>>>>> Abigail
                     <td>mueble.jpg</td>
                   </tr>
 

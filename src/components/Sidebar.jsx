@@ -97,6 +97,90 @@ export const Sidebar = () => {
           </div>
         </aside>
       </div>
+<<<<<<< HEAD
+=======
+
+      <nav className="mt-2" >
+        <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li className="nav-item">
+            <Link to="/Productos" className="nav-link">
+              <i style={letras} className="fas fa-list-alt"> </i>
+              <p style={letras}>
+                Productos
+              </p>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/Productos_gerencia" className="nav-link">
+              <i style={letras} className="fas fa-list-alt"> </i>
+              <p style={letras}>
+                Productos Gerente
+              </p>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/Usuarios" className="nav-link">
+              <i style={letras} className="fas fa-users"></i>
+              <p style={letras}>
+                Usuarios
+              </p>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/entradas_salidas" className="nav-link">
+              <i style={letras} className="fas fa-sign-in-alt"></i>
+              <p style={letras}>
+                Entradas y Salidas
+              </p>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/entradas_salidas_gerencia" className="nav-link">
+              <i style={letras} className="fas fa-sign-in-alt"></i>
+              <p style={letras}>
+                Entradas y Salidas Generente
+              </p>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/" className="nav-link">
+              <i style={letras} className="fas fa-book-open"></i>
+              <p style={letras}>
+                Categorias
+              </p>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/categoria_gerencia" className="nav-link">
+              <i style={letras} className="fas fa-book-open"></i>
+              <p style={letras}>
+                Categorias Gerente
+              </p>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/Informes" className="nav-link">
+              <i style={letras} className="fas fa-chart-bar"></i>
+              <p style={letras}>
+                Informes
+              </p>
+            </Link>
+          </li>
+
+
+          
+         
+          
+         
+          
+    
+        </ul>
+      </nav>
+    </div>
+  </aside>
+  <aside className="control-sidebar control-sidebar-dark">
+  </aside>
+>>>>>>> Abigail
     </>
   )
 }
