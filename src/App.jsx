@@ -1,7 +1,7 @@
 import React from 'react'
-import { Catge_ } from './components/Catge_';
-import { Esgeren } from './components/Esgeren';
-import { SalidasEnt } from './components/SalidasEnt';
+import {Catge_} from './components/Catge_'
+import { Esgeren } from './components/Esgeren'
+import { SalidasEnt } from './components/SalidasEnt'
 import Categorias_view from './components/Categorias_view';
 import Productos_view from './components/Productos_view';
 import Usuarios_view from './components/Usuarios_view';
@@ -27,7 +27,7 @@ function App() {
         <Route path='/Usuarios' element={<Usuarios_view/>}/>
       </Routes>
     </BrowserRouter>
-  )
+)
 }
 
 export default App
