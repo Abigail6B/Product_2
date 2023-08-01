@@ -1,11 +1,11 @@
 import React from 'react'
 
 export const Entrada_salida_geren = () => {
-    const  rosa={
-        background:'#FFDDD2',
-    }
+    const rosa={
+        background:'#ffde59'
+      }
     const azul={
-        background:'#83C5BE'
+        background:'#8e582c'
     }
   return (
     <>

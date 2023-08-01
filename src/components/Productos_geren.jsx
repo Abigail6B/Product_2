@@ -2,12 +2,12 @@ import React from 'react'
 
 function Productos_geren() {
 
-  const  rosa={
-    background:'#FFDDD2',
+  const rosa={
+    background:'#ffde59'
   }
-  const azul={
-    background:'#83C5BE'
-  }
+const azul={
+    background:'#8e582c'
+}
   return (
     <>
       <div className="content-wrapper">

@@ -4,7 +4,7 @@ import user from '../assets/user.png'
 
 export const Sidebar = () => {
   const rosa={
-    background:'#FFDDD2'
+    background:'#ffde59'
   }
   const letras={
     color:'#000'
@@ -80,7 +80,7 @@ export const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/" className="nav-link">
+            <Link to="/Categorias" className="nav-link">
               <i style={letras} className="fas fa-book-open"></i>
               <p style={letras}>
                 Categorias

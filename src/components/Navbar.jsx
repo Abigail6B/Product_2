@@ -1,9 +1,9 @@
 import React from 'react'
-import DAF from '../assets/Mueblerias_DAF.png'
+import DAF from '../assets/DAF.png'
 
 export const Navbar =() => {
   const azulF={
-    background:'#006D77'
+    background:'#8e582c'
   }
   return (
     <>

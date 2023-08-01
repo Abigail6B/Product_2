@@ -2,14 +2,14 @@ import React from 'react'
 import DAF from '../assets/DAF.png'
 
 const Home = () => {
-    const  rosa={
-        background:'#FFDDD2',
-    }
-    const azul={
-        background:'#83C5BE'
-    }
+  const rosa={
+    background:'#ffde59'
+  }
+const azul={
+    background:'#8e582c'
+}
     const azul_f={
-        background:'#387283'
+        background:'#8e582c'
     }
     const blanco={
         background:'#FFFF'

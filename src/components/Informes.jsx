@@ -2,11 +2,11 @@ import React from 'react'
 
 
 const Informes = () => {
-    const rosa = {
-        background: '#FFDDD2',
-    }
-    const azul = {
-        background: '#83C5BE'
+    const rosa={
+        background:'#ffde59'
+      }
+    const azul={
+        background:'#8e582c'
     }
     const icon = {
         color: '#83C5BE'
