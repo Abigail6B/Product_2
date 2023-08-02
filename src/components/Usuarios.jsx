@@ -1,18 +1,21 @@
 import React from 'react'
 
 const Usuarios = () => {
-    const rosa={
+    const amarillo={
         background:'#ffde59'
       }
-    const azul={
+    const cafe={
         background:'#8e582c'
     }
     const icon={
-        color:'#83C5BE'
-       }
-       const iconN={
+        color:'#8e582c'
+    }
+    const iconN={
         color:'#000'
-       }
+    }
+    const letras={
+        color:'#FFFF'
+    }
     return (
         <>
          <div className='content-wrapper'>
@@ -35,8 +38,8 @@ const Usuarios = () => {
 
           
             <div className="card ">
-                <div className="card-header" style={azul}>
-                <h3 className="card-title"><i className="fas fa-plus-square"></i>Registro de Usuarios</h3>
+                <div className="card-header" style={cafe}>
+                <h3 className="card-title" style={letras}><i className="fas fa-plus-square" style={letras}></i>Registro de Usuarios</h3>
 
                 <div className="card-tools">
                     <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -44,7 +47,7 @@ const Usuarios = () => {
                     </button>
                 </div>
                 </div>
-                <div className="card-body" style={rosa}>
+                <div className="card-body" style={amarillo}>
                     <div className="row">
                             <div className="col-4">
                                 <div className='form-group'>
@@ -113,27 +116,27 @@ const Usuarios = () => {
                     
                 </div>
                 <div className="card-footer">
-                    <button className="btn submited float-right" style={azul}>Aceptar</button>
+                    <button className="btn submited float-right" style={cafe}><b style={letras}> Aceptar</b></button>
                 </div>
             </div>
             
 
 <div>
         <table className="table table-bordered table-striped table-hover" id='table_User'>
-            <thead style={azul}>
+            <thead style={cafe}>
                 <tr>
-                    <th>No.</th>
-                    <th>Clave</th>
-                    <th>Puesto</th>
-                    <th>Nombre</th>
-                    <th>Usuario</th>
-                    <th>Contraseña</th>
-                    <th>Fotografía</th>
-                    <th>Fecha</th>
-                    <th>Opciones</th>
+                    <th style={letras}>No.</th>
+                    <th style={letras}>Clave</th>
+                    <th style={letras}>Puesto</th>
+                    <th style={letras}>Nombre</th>
+                    <th style={letras}>Usuario</th>
+                    <th style={letras}>Contraseña</th>
+                    <th style={letras}>Fotografía</th>
+                    <th style={letras}>Fecha</th>
+                    <th style={letras}>Opciones</th>
                 </tr>
             </thead>
-            <tbody style={rosa}>
+            <tbody style={amarillo}>
                 <tr>
                      <td>1</td>
                      <td>UTP0144685</td>

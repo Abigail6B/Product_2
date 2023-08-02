@@ -1,11 +1,14 @@
 import React from 'react'
 
 export const Categorias_geren = () => {
-    const rosa={
+    const amarillo={
         background:'#ffde59'
       }
-    const azul={
+    const cafe={
         background:'#8e582c'
+    }
+    const letras={
+        color:'#FFFF'
     }
   return (
     <>
@@ -31,15 +34,15 @@ export const Categorias_geren = () => {
                 <div className="card-body card-info">
                     <table className="table table-bordered table-hover table-striped" id="table">
                         <thead>
-                            <tr className="text-center" style={azul}>
-                                <th>No.</th>
-                                <th>Codigo</th>
-                                <th>Tipo</th>
-                                <th>Fecha</th>
+                            <tr className="text-center" style={cafe}>
+                                <th style={letras}>No.</th>
+                                <th style={letras}>Codigo</th>
+                                <th style={letras}>Tipo</th>
+                                <th style={letras}>Fecha</th>
                             </tr>
                         </thead>
                         <tbody className="text-center">
-                            <tr style={rosa}>
+                            <tr style={amarillo}>
                                 <td>1</td>
                                 <td>SN_7821</td>
                                 <td>Sillones</td>

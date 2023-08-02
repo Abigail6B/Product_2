@@ -23,10 +23,16 @@
 
   <!-- Theme style -->
   <link rel="stylesheet" href="./public/dist/css/adminlte.css?v=3.2.0">
-  <script nonce="ee424c08-83b0-493d-a7c4-88b6656dedf9">(function(w,d){!function(bt,bu,bv,bw){bt[bv]=bt[bv]||{};bt[bv].executed=[];bt.zaraz={deferred:[],listeners:[]};bt.zaraz.q=[];bt.zaraz._f=function(bx){return function(){var by=Array.prototype.slice.call(arguments);bt.zaraz.q.push({m:bx,a:by})}};for(const bz of["track","set","debug"])bt.zaraz[bz]=bt.zaraz._f(bz);bt.zaraz.init=()=>{var bA=bu.getElementsByTagName(bw)[0],bB=bu.createElement(bw),bC=bu.getElementsByTagName("title")[0];bC&&(bt[bv].t=bu.getElementsByTagName("title")[0].text);bt[bv].x=Math.random();bt[bv].w=bt.screen.width;bt[bv].h=bt.screen.height;bt[bv].j=bt.innerHeight;bt[bv].e=bt.innerWidth;bt[bv].l=bt.location.href;bt[bv].r=bu.referrer;bt[bv].k=bt.screen.colorDepth;bt[bv].n=bu.characterSet;bt[bv].o=(new Date).getTimezoneOffset();if(bt.dataLayer)for(const bG of Object.entries(Object.entries(dataLayer).reduce(((bH,bI)=>({...bH[1],...bI[1]})),{})))zaraz.set(bG[0],bG[1],{scope:"page"});bt[bv].q=[];for(;bt.zaraz.q.length;){const bJ=bt.zaraz.q.shift();bt[bv].q.push(bJ)}bB.defer=!0;for(const bK of[localStorage,sessionStorage])Object.keys(bK||{}).filter((bM=>bM.startsWith("_zaraz_"))).forEach((bL=>{try{bt[bv]["z_"+bL.slice(7)]=JSON.parse(bK.getItem(bL))}catch{bt[bv]["z_"+bL.slice(7)]=bK.getItem(bL)}}));bB.referrerPolicy="origin";bB.src="/cdn-cgi/zaraz/s.js?z="+btoa(encodeURIComponent(JSON.stringify(bt[bv])));bA.parentNode.insertBefore(bB,bA)};["complete","interactive"].includes(bu.readyState)?zaraz.init():bt.addEventListener("DOMContentLoaded",zaraz.init)}(w,d,"zarazData","script");})(window,document);</script></head>
-<body class="hold-transition sidebar-open layout-fixed " style="height: auto;">
-    <div id="root"><div ClassNameName="wrapper">
 
+
+  </head>
+ 
+  <body class="hold-transition layout-fixed" style="height: auto;">
+    <div id="root" class="wrapper">
+
+      <aside class="control-sidebar control-sidebar-dark">
+
+      </aside>
     </div>
     <script type="module" src="/src/main.jsx"></script>
    <!-- jQuery -->
@@ -35,6 +41,7 @@
 <script src="./public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="./public/dist/js/adminlte.min.js"></script>
+
 <!-- DataTables  & Plugins -->
 <script src="./public/plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="./public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
@@ -48,41 +55,113 @@
 <script src="./public/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
 <script src="./public/plugins/datatables-buttons/js/buttons.print.min.js"></script>
 <script src="./public/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+
+<!-- Datatables de vistas del proyecto-->
 <script src="./public/dist/js/categorias_datatable.js"></script>
 <script src="./public/dist/js/productos_datatable.js"></script>
 <script src="./public/dist/js/usuarios_datatable.js"></script>
-
-<!-- jQuery -->
-<script src="./public/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="./public/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="./public/dist/js/adminlte.min.js?v=3.2.0"></script>
-
-
-<script src="./public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
-
-<script src="./public/plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="./public/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="./public/plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="./public/plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="./public/plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="./public/plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-
-<script src="./public/plugins/pdfmake/pdfmake.min.js"></script>
-<script src="./public/plugins/pdfmake/vfs_fonts.js"></script>
-
-<script src="./public/plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="./public/plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="./public/plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
-<script src="./public/plugins/chart.js/Chart.min.js"></script>
-
 <script src="./public/dist/js/datatable.js"></script>
 <script src="./public/dist/js/datatable_catge.js"></script>
 <script src="./public/dist/js/datatable_entsal_ge.js"></script>
 
+
+
+<script src="./public/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+
+
+
 <!-- ChartJS -->
 <script src="./public/plugins/chart.js/Chart.min.js"></script>
+
+<!-- ChartJS-->
+<script>
+  $(function () {
+    /* ChartJS
+     * -------
+     * Here we will create a few charts using ChartJS
+     */
+
+    //--------------
+    //- AREA CHART -
+    //--------------
+
+    // Get context with jQuery - using jQuery's .get() method.
+
+    var areaChartData = {
+      labels  : ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+      datasets: [
+        {
+          label               : 'Digital Goods',
+          backgroundColor     : 'rgba(60,141,188,0.9)',
+          borderColor         : 'rgba(60,141,188,0.8)',
+          pointRadius          : false,
+          pointColor          : '#3b8bba',
+          pointStrokeColor    : 'rgba(60,141,188,1)',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(60,141,188,1)',
+          data                : [28, 48, 40, 19, 86, 27, 90]
+        },
+        {
+          label               : 'Electronics',
+          backgroundColor     : 'rgba(210, 214, 222, 1)',
+          borderColor         : 'rgba(210, 214, 222, 1)',
+          pointRadius         : false,
+          pointColor          : 'rgba(210, 214, 222, 1)',
+          pointStrokeColor    : '#c1c7d1',
+          pointHighlightFill  : '#fff',
+          pointHighlightStroke: 'rgba(220,220,220,1)',
+          data                : [65, 59, 80, 81, 56, 55, 40]
+        },
+      ]
+    }
+
+    var areaChartOptions = {
+      maintainAspectRatio : false,
+      responsive : true,
+      legend: {
+        display: false
+      },
+      scales: {
+        xAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }],
+        yAxes: [{
+          gridLines : {
+            display : false,
+          }
+        }]
+      }
+    }
+
+   
+
+    
+    //-------------
+    //- BAR CHART -
+    //-------------
+    var barChartCanvas = $('#barChart').get(0).getContext('2d')
+    var barChartData = $.extend(true, {}, areaChartData)
+    var temp0 = areaChartData.datasets[0]
+    var temp1 = areaChartData.datasets[1]
+    barChartData.datasets[0] = temp1
+    barChartData.datasets[1] = temp0
+
+    var barChartOptions = {
+      responsive              : true,
+      maintainAspectRatio     : false,
+      datasetFill             : false
+    }
+
+    new Chart(barChartCanvas, {
+      type: 'bar',
+      data: barChartData,
+      options: barChartOptions
+    });
+
+  });
+</script>
 </body>
 </html>
 
