@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import DAF from '../assets/DAF.png'
 
 export const Navbar =() => {
@@ -21,16 +22,21 @@ export const Navbar =() => {
 
         <ul className="navbar-nav">
           <li className="nav-item">
-              <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars" style={blanco}></i></a>
+              <a className="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars"></i></a>
           </li>
         </ul>
 
         <ul className="navbar-nav ml-auto">
         
         <li className="nav-item">
-            <a className="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button" >
-            <i className="fas fa-sign-out-alt" style={blanco}></i>
+            <Link to="/" className="brand-link">
+            <a className="nav-link text-white" data-widget="control-sidebar" data-slide="true" href="" role="button" >
+            
+            <i className="fas fa-sign-out-alt"></i>
+           
             </a>
+            </Link>
+            
         </li>
         </ul>
     </nav>
