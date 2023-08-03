@@ -1,6 +1,58 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Productos = () =>{
+
+    const [cod_producto, setCod_producto] = useState('');
+    const [id_categoria, setId_categoria] = useState(0);
+    const [marca, setMarca] = useState('');
+    const [nombre_producto, setNombre_producto] = useState('');
+    const [n_piezas, setN_piezas] = useState(0);
+    const [color, setColor] = useState('');
+    const [material, setMaterial] = useState('');
+    const [unidades, setUnidades] = useState(0);
+    const [dim_alto, setDim_alto] = useState(0);
+    const [dim_ancho, setDim_ancho] = useState(0);
+    const [dim_largo, setDim_largo] = useState(0);
+    const [precio, setPrecio] = useState(0);
+    const [descripcion, setDescripcion] = useState('');
+    const [fecha_alta, setFecha_alta] = useState('2023-08-03 10:00:00');
+    const [fotografia, setFotografia] = useState('');
+
+    const handleAdd = () =>{
+        var formdata = new FormData();
+        formdata.append("cod_producto", cod_producto);
+        formdata.append("id_categoria", id_categoria);
+        formdata.append("marca", marca);
+        formdata.append("nombre_producto", nombre_producto);
+        formdata.append("n_piezas", n_piezas);
+        formdata.append("color", color);
+        formdata.append("material", material);
+        formdata.append("unidades", unidades);
+        formdata.append("dim_alto", dim_alto);
+        formdata.append("dim_ancho", dim_ancho);
+        formdata.append("dim_largo", dim_largo);
+        formdata.append("precio", precio);
+        formdata.append("descripcion", descripcion);
+        formdata.append("fecha_alta", fecha_alta);
+        formdata.append("fotografia", fotografia);
+
+            var requestOptions = {
+            mode : 'no-cors',
+            header: {
+                'Content-Type': "application/json, charset=UTF-8"
+            },
+            method: 'POST',
+            body: formdata,
+            };
+
+            fetch("http://localhost/prueba_1/index.php/Api/DAF/", requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+    }
+
+
     const amarillo={
         background:'#ffde59'
       }
@@ -16,6 +68,8 @@ const Productos = () =>{
     const letras={
         color:'#FFFF'
     }
+
+
     return (
         <>
 <div className='content-wrapper '>
@@ -49,24 +103,19 @@ const Productos = () =>{
                             <div className="col-4">
                                 <div className='form-group'>
                                     <label >Código del Producto</label>
-                                    <input  className="form-control" type="text" id='cod_prod' name='cod_prod' placeholder='Escribe aqui' />
+                                    <input  className="form-control" type="text" id='cod_prod' name='cod_prod' placeholder='Escribe aqui' valor={cod_producto} onChange={event => setCod_producto(event.target.value)}/>
                                 </div>
                             </div>
                             <div className="col-4">
                                 <div className='form-group'>
                                     <label >Código de Categoria</label>
-                                    <select name="categorias" id="categorias" className="form-control">
-                                        <option value="">-Seleccione</option>
-                                        <option value="Recamaras">Recamaras</option>
-                                        <option value="Oficina">Oficina</option>
-                                        <option value="Sala">Sala</option>
-                                    </select>
+                                    <input  className="form-control" type="text" id='cod_cate' name='cod_cate' placeholder='Escribe aqui' valor={id_categoria} onChange={event => setId_categoria(event.target.value)}/>
                                 </div>
                             </div>
                             <div className="col-4">
                                 <div className='form-group'>
                                     <label >Marca</label>
-                                    <input  className="form-control" type="text" id='marca' name='marca' placeholder='Escribe aqui' />
+                                    <input  className="form-control" type="text" id='marca' name='marca' placeholder='Escribe aqui' valor={marca} onChange={event => setMarca(event.target.value)} />
                                 </div>
                             </div>
                     </div>
@@ -74,19 +123,19 @@ const Productos = () =>{
                         <div className="col-4">
                             <div className='form-group'>
                                 <label >Nombre del Producto</label>
-                                <input  className="form-control" type="text" id='name_prod' name='name_prod' placeholder='Escribe aqui' />
+                                <input  className="form-control" type="text" id='name_prod' name='name_prod' placeholder='Escribe aqui' valor={nombre_producto} onChange={event => setNombre_producto(event.target.value)} />
                             </div>
                         </div>
                         <div className="col-4">
                             <div className='form-group'>
                                 <label  >No. Piezas</label>
-                                <input  className="form-control" type="number" id='n_pza' name='n_pza' placeholder='0' />
+                                <input  className="form-control" type="number" id='n_pza' name='n_pza' placeholder='0' valor={n_piezas} onChange={event => setN_piezas(event.target.value)} />
                             </div>
                         </div>
                         <div className="col-4">
                             <div className='form-group'>
                                 <label >Color</label>
-                                <input  className="form-control" type="text" id='color' name='color' placeholder='Negro' />
+                                <input  className="form-control" type="text" id='color' name='color' placeholder='Negro' valor={color} onChange={event => setColor(event.target.value)}/>
                             </div>
                         </div>
                     </div>
@@ -94,13 +143,13 @@ const Productos = () =>{
                         <div className="col-4">
                             <div className='form-group'>
                                 <label >Material</label>
-                                <input  className="form-control" type="text" id='material' name='material' placeholder='Escribe aqui' />
+                                <input  className="form-control" type="text" id='material' name='material' placeholder='Escribe aqui' valor={material} onChange={event => setMaterial(event.target.value)} />
                             </div>
                         </div>
                         <div className="col-4">
                             <div className='form-group'>
                                 <label  >Unidades</label>
-                                <input  className="form-control" type="number" id='unidades' name='unidades' placeholder='0' />
+                                <input  className="form-control" type="number" id='unidades' name='unidades' placeholder='0' valor={unidades} onChange={event => setUnidades(event.target.value)} />
                             </div>
                         </div>
                         <div className="col-4">
@@ -108,13 +157,13 @@ const Productos = () =>{
                                 <label  >Dimensiones (cm)</label>
                                 <div className="row">
                                     <div className="col-4">
-                                    <input  className="form-control" type="number" id='alto' name='alto' placeholder='Alto' />
+                                    <input  className="form-control" type="number" id='alto' name='alto' placeholder='Alto' valor={dim_alto} onChange={event => setDim_alto(event.target.value)} />
                                     </div>
                                     <div className="col-4">
-                                    <input  className="form-control" type="number" id='ancho' name='ancho' placeholder='Ancho' />
+                                    <input  className="form-control" type="number" id='ancho' name='ancho' placeholder='Ancho' valor={dim_ancho} onChange={event => setDim_ancho(event.target.value)} />
                                     </div>
                                     <div className="col-4">
-                                    <input  className="form-control" type="number" id='largo' name='largo' placeholder='Largo' />
+                                    <input  className="form-control" type="number" id='largo' name='largo' placeholder='Largo' valor={dim_largo} onChange={event => setDim_largo(event.target.value)} />
                                     </div>
                                 </div>
                             </div>
@@ -124,31 +173,34 @@ const Productos = () =>{
                         <div className="col-4">
                             <div className='form-group'>
                                 <label  >Costos</label>
-                                <input  className="form-control" type="number" id='precio' name='precio' placeholder='$$$' />
+                                <input  className="form-control" type="number" id='precio' name='precio' placeholder='$$$' valor={precio} onChange={event => setPrecio(event.target.value)}/>
                             </div>
                         </div>
                         <div className="col-4">
                             <div className='form-group'>
                                 <label >Descripción</label>
-                                <input  className="form-control" type="text" id='descripcion' name='descripcion' placeholder='Escribe aqui' />
+                                <input  className="form-control" type="text" id='descripcion' name='descripcion' placeholder='Escribe aqui' valor={descripcion} onChange={event => setDescripcion(event.target.value)}/>
                             </div>
                         </div>
                         <div className="col-4">
                             <div className="form-group">
                                 <label  >Fecha de alta</label>
-                                <input type="date" className='form-control' id='fecha' name='fecha' />
+                                <input type="date" className='form-control' id='fecha' name='fecha' valor={fecha_alta} onChange={event => setFecha_alta(event.target.value)} />
                             </div>
                         </div>
                     </div>
                     <div className="col-4">
                         <div className="form-group">
                             <label  >Fotografía</label>
-                            <input type="file" className='form-control' id='foto' name='foto'/>
+                            <input type="file" className='form-control' id='foto' name='foto' valor={fotografia} onChange={event => setFotografia(event.target.value)}/>
                         </div>
                     </div>
                 </div>
                 <div className="card-footer">
-                    <button className="btn submited float-right" style={cafe}><b style={letras}> Aceptar</b></button>
+                    <Link to='/Home' className="btn btn-secondary">
+                        Cancelar
+                    </Link>
+                    <button className="btn submited float-right" style={cafe}><b style={letras} onClick={()=>handleAdd()}> Aceptar </b></button>
                 </div>
             </div>
  <div>
