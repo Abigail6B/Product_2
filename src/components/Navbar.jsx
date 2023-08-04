@@ -30,11 +30,8 @@ export const Navbar =() => {
         
         <li className="nav-item">
             <Link to="/" className="brand-link">
-            <a className="nav-link text-white" data-widget="control-sidebar" data-slide="true" href="" role="button" >
             
             <i className="fas fa-sign-out-alt"></i>
-           
-            </a>
             </Link>
             
         </li>

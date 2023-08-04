@@ -1,6 +1,49 @@
 import React from 'react'
+import { useState } from 'react';
+import { Link } from 'react-router-dom'
 
 const Categorias = () => {
+
+    const [codigo, setCodigo] = useState('');
+    const [tipo, setTipo] = useState('');
+    const [fecha_alta, setFecha_alta] = useState('2023-08-03 10:00:00')
+
+    const handleAdd = () =>{
+      var formdata = new FormData();
+      formdata.append("codigo", codigo);
+      formdata.append("tipo", tipo);
+      formdata.append("fecha_alta", fecha_alta);
+
+      var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+      };
+
+      fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA/", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
+
+    const [data, setData] = useState([])
+        fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA")
+        .then(response => response.json())
+        .then(result => setData(result))
+        .catch(error => console.log('error', error));
+
+    const handleDelete = (id_categoria) =>{
+      var requestOptions = {
+        method: 'DELETE',
+        redirect: 'follow'
+      };
+            
+      fetch(`http://localhost/prueba_1/index.php/Api/CATEGORIA/${id_categoria}`, 
+      requestOptions)
+      .then(response => response.text())
+      .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+    }
   
     const amarillo={
       background:'#ffde59'
@@ -50,20 +93,22 @@ const Categorias = () => {
           <div className="card-body" style={amarillo}>
             <div className='form-group'>
                   <label htmlFor="">Código de Categoria</label>
-                  <input  className="form-control" type="text" id='cod_cat' name='cod_cat' placeholder='Escribe aqui' />
+                  <input  className="form-control" type="text" id='cod_cat' name='cod_cat' placeholder='Escribe aqui' valor={codigo} onChange={event => setCodigo(event.target.value)} />
             </div>
             <div className="form-group">
               <label htmlFor="">Tipo</label>
-              <select  className="form-control" name="tipo" id="tipo">
-                  <option value="">-Seleccione-</option>
-                  <option value="Recamaras">Recamaras</option>
-                  <option value="Oficina">Oficina</option>
-                  <option value="Sala">Sala</option>
-              </select>
+              <input  className="form-control" type="text" id='tip' name='tip' placeholder='Escribe aqui' valor={tipo} onChange={event => setTipo(event.target.value)} />
+            </div>
+            <div className="form-group">
+              <label  >Fecha de alta</label>
+              <input type="date" className='form-control' id='fecha' name='fecha' valor={fecha_alta} onChange={event => setFecha_alta(event.target.value)} />
             </div>
           </div>
           <div className="card-footer">
-                    <button className="btn submited float-right" style={cafe}><b style={letras}> Aceptar</b></button>
+            <Link to='/Home' className="btn btn-secondary">
+              Cancelar
+            </Link>
+            <button className="btn submited float-right" style={cafe}><b style={letras} onClick={()=>handleAdd()}> Aceptar </b></button>
           </div>
         </div>
       </section>
@@ -79,16 +124,19 @@ const Categorias = () => {
                   </tr>
               </thead>
               <tbody style={amarillo}>
-                  <tr>
-                      <th>1</th>
-                      <th>ACCOFF201</th>
-                      <th>Oficina</th>
-                      <th>15-06-2023</th>
-                      <th>
-                      <i className="fas fa-trash-alt" alt="bote de basura" style={icon}></i>
-                      <i className="fas fa-pen"style={icon}></i>
-                      </th>
-                  </tr>
+                  {data.map((cate)=>(
+                    <tr key={cate.id_categoria}>
+                      <td>{cate.id_categoria}</td>
+                      <td>{cate.codigo}</td>
+                      <td>{cate.tipo}</td>
+                      <td>{cate.fecha_alta}</td>
+                      <td >
+                        <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(cate.id_categoria)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
+                        
+                        <button className='btn col-lg-4 offset-md-1 '><i className="fas fa-pen" style={icon}></i></button>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
           </table>
       </section>

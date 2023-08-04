@@ -52,6 +52,24 @@ const Productos = () =>{
             .catch(error => console.log('error', error));
     }
 
+    const [data, setData] = useState([])
+        fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
+        .then(response => response.json())
+        .then(result => setData(result))
+        .catch(error => console.log('error', error));
+
+    const handleDelete = (id_producto) =>{
+        var requestOptions = {
+            method: 'DELETE',
+            redirect: 'follow'
+          };
+          
+          fetch(`http://localhost/prueba_1/index.php/Api/PRODUCTOS/${id_producto}`, 
+        requestOptions)
+            .then(response => response.text())
+            .then(result => console.log(result))
+            .catch(error => console.log('error', error));
+    }
 
     const amarillo={
         background:'#ffde59'
@@ -206,44 +224,57 @@ const Productos = () =>{
  <div>
   <table className="table table-bordered table-striped table-hover" id='table_Prod'>
             <thead style={cafe}>
-                <tr style={letras}>
-                    <th>No.</th>
-                    <th>Código</th>
-                    <th>Marca</th>
-                    <th>Nombre</th>
-                    <th>No. pza</th>
-                    <th>Color</th>
-                    <th>Material</th>
-                    <th>Unidades</th>
-                    <th>Dimensiones</th>
-                    <th>Precio</th>
-                    <th>Descripción</th>
-                    <th>Fecha de alta</th>
-                    <th>Fotografía</th>
-                    <th>Opciones</th>
+            <tr>
+                    <th style={letras}>No.</th>
+                    <th style={letras}>Código poroducto</th>
+                    <th style={letras}>Código categoria</th>
+                    <th style={letras}>Marca</th>
+                    <th style={letras}>Nombre del producto</th>
+                    <th style={letras}>No.Pza</th>
+                    <th style={letras}>Color</th>
+                    <th style={letras}>Material</th>
+                    <th style={letras}>Unidades</th>
+                    <th style={letras}>Alto</th>
+                    <th style={letras}>Ancho</th>
+                    <th style={letras}>Largo</th>
+                    <th style={letras}>Precio</th>
+                    <th style={letras}>Descripcion</th>
+                    <th style={letras}>Fecha</th>
+                    <th style={letras}>Fotografía</th>
+                    <th style={letras}>Opciones</th>
+
+                  </tr>
+                </thead>
+                <tbody style={amarillo}>
+                {data.map((productos) => (
+                  <tr key={productos.id_producto}>
+                    <td>{productos.id_producto}</td>
+                    <td>{productos.cod_producto}</td>
+                    <td>{productos.id_categoria}</td>
+                    <td>{productos.marca}</td>
+                    <td>{productos.nombre_producto}</td>
+                    <td>{productos.n_piezas}</td>
+                    <td>{productos.color}</td>
+                    <td>{productos.material}</td>
+                    <td>{productos.unidades}</td>
+                    <td>{productos.dim_alto}</td>
+                    <td>{productos.dim_ancho}</td>
+                    <td>{productos.dim_largo}</td>
+                    <td>{productos.precio}</td>
+                    <td>{productos.descripcion}</td>
+                    <td>{productos.fecha_alta}</td>
+                    <td>{productos.fotografia}</td>
+                    <td >
+                        <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(productos.id_producto)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
+                        
+                        <button className='btn col-lg-4 offset-md-1 '><i className="fas fa-pen" style={icon}></i></button>
+                        
+                     
+                    </td>
                 </tr>
-            </thead>
-            <tbody style={amarillo}>
-                <tr>
-                     <td>1</td>
-                     <td>CHAIR2</td>
-                     <td>Chair</td>
-                     <td>Silla</td>
-                     <td>2</td>
-                     <td>Negra</td>
-                     <td>Plastico</td>
-                     <td>4</td>
-                     <td>10, 20, 45</td>
-                     <td>350</td>
-                     <td>Silla con respaldo de felpa</td>
-                     <td>14-06-2023</td>
-                     <td>x</td>
-                     <td>
-                     <i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i>
-                     <i className="fas fa-pen" style={icon}></i>
-                     </td>
-                </tr>
-            </tbody>
+                ))}
+
+                </tbody>
         </table>
     </div>
     </section>
