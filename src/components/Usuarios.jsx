@@ -15,6 +15,12 @@ const Usuarios = () => {
     const iconN={
         color:'#000'
        }
+       const amarillo={
+        background:'#ffde59'
+      }
+    const letras={
+        color:'#FFFF'
+    }
 
        
        const [clave_empleado, setClave_empleado] = useState('');
@@ -186,7 +192,7 @@ const Usuarios = () => {
                 </div>
                 <div className="card-footer">
                     <Link to='/Home' className="btn btn-secondary">Cancelar</Link>
-                    <button className="btn submited float-right" style={azul} onClick={ ()=> handleAdd() }>Aceptar</button>
+                    <button className="btn submited float-right" style={cafe} onClick={ ()=> handleAdd() }>Aceptar</button>
                 </div>
             </div>
             

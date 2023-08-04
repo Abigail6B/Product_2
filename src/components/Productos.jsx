@@ -1,12 +1,8 @@
 import React from 'react'
-
+import { Link } from "react-router-dom"
 const Productos = () =>{
-<<<<<<< HEAD
     //estilos para los fondos
-    const rosa={
-=======
     const amarillo={
->>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
         background:'#ffde59'
       }
     const cafe={
@@ -17,15 +13,10 @@ const Productos = () =>{
     }
     const iconN={
         color:'#000'
-<<<<<<< HEAD
-       }
-
-=======
     }
     const letras={
         color:'#FFFF'
     }
->>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
     return (
         <>
 <div className='content-wrapper '>
@@ -181,12 +172,8 @@ const Productos = () =>{
                     <th>Opciones</th>
                 </tr>
             </thead>
-<<<<<<< HEAD
-            <tbody style={rosa}>
-                
-=======
             <tbody style={amarillo}>
->>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
+                
                 <tr>
                      <td>1</td>
                      <td>CHAIR2</td>

@@ -1,38 +1,22 @@
 import React from 'react'
-
+import { Link } from "react-router-dom"
 const Categorias = () => {
-<<<<<<< HEAD
 //se crean estilos para darle color a ciertos apartados  
-  const rosa={
-    background:'#ffde59'
-  }
-  const azul={
-      background:'#8e582c'
-  }
-       const icon={
-        color:'#83C5BE'
-       }
-       const iconN={
-        color:'#000'
-       }
-=======
-  
-    const amarillo={
-      background:'#ffde59'
-    }
-    const cafe={
-        background:'#8e582c'
-    }
-    const icon={
-      color:'#8e582c'
-    }
-    const iconN={
-      color:'#000'
-    }
-    const letras={
-      color:'#FFFF'
-    }
->>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
+const amarillo={
+  background:'#ffde59'
+}
+const cafe={
+  background:'#8e582c'
+}
+const icon={
+  color:'#8e582c'
+}
+const iconN={
+  color:'#000'
+}
+const letras={
+  color:'#FFFF'
+}
     return (
       <>
       <div className='content-wrapper'>
@@ -107,11 +91,8 @@ const Categorias = () => {
                       </th>
                   </tr>
               </tbody>
-<<<<<<< HEAD
               <tfoot>
                           </tfoot>
-=======
->>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
           </table>
       </section>
       </div>

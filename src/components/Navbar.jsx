@@ -1,10 +1,6 @@
 import React from 'react'
-<<<<<<< HEAD
+import { Link } from "react-router-dom"
 import DAF from '../assets/DAF.png' //se importa el logo de la empresa
-=======
-import { Link } from 'react-router-dom'
-import DAF from '../assets/DAF.png'
->>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
 
 export const Navbar =() => {
   //se agregan estilos para cambiar el color del header
