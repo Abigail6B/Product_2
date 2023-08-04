@@ -2,12 +2,8 @@ import React from 'react'
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 const Usuarios = () => {
-<<<<<<< HEAD
     //se crean estilos para las fuentes y los iconos
     const rosa={
-=======
-    const amarillo={
->>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
         background:'#ffde59'
       }
     const cafe={
@@ -18,7 +14,6 @@ const Usuarios = () => {
     }
     const iconN={
         color:'#000'
-<<<<<<< HEAD
        }
 
        
@@ -68,12 +63,6 @@ const Usuarios = () => {
             
        }, []);
       console.log(usu);
-=======
-    }
-    const letras={
-        color:'#FFFF'
-    }
->>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
     return (
         <>
          <div className='content-wrapper'>
@@ -196,12 +185,8 @@ const Usuarios = () => {
                     
                 </div>
                 <div className="card-footer">
-<<<<<<< HEAD
                     <Link to='/Home' className="btn btn-secondary">Cancelar</Link>
                     <button className="btn submited float-right" style={azul} onClick={ ()=> handleAdd() }>Aceptar</button>
-=======
-                    <button className="btn submited float-right" style={cafe}><b style={letras}> Aceptar</b></button>
->>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
                 </div>
             </div>
             
@@ -221,7 +206,6 @@ const Usuarios = () => {
                     <th style={letras}>Opciones</th>
                 </tr>
             </thead>
-<<<<<<< HEAD
             <tbody style={rosa}>
                 { usu.map((u) =>(
                         <tr key={u.id_usuario}>
@@ -240,23 +224,6 @@ const Usuarios = () => {
                         </tr>
                     ))
                 }
-=======
-            <tbody style={amarillo}>
-                <tr>
-                     <td>1</td>
-                     <td>UTP0144685</td>
-                     <td>Gerente</td>
-                     <td>Fatima Ortega</td>
-                     <td>OrtegaF</td>
-                     <td>1111</td>
-                     <td>x</td>
-                     <td>17-08-2020</td>
-                     <td>
-                     <i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i>
-                     <i className="fas fa-pen" style={icon}></i>
-                     </td>
-                </tr>
->>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
             </tbody>
             <tfoot>
                        
