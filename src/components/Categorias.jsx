@@ -1,24 +1,4 @@
 import React from 'react'
-<<<<<<< HEAD
-import { Link } from "react-router-dom"
-const Categorias = () => {
-//se crean estilos para darle color a ciertos apartados  
-const amarillo={
-  background:'#ffde59'
-}
-const cafe={
-  background:'#8e582c'
-}
-const icon={
-  color:'#8e582c'
-}
-const iconN={
-  color:'#000'
-}
-const letras={
-  color:'#FFFF'
-}
-=======
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
@@ -80,7 +60,6 @@ const Categorias = () => {
     const letras={
       color:'#FFFF'
     }
->>>>>>> Abigail
     return (
       <>
       <div className='content-wrapper'>

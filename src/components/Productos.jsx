@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import { Link } from "react-router-dom"
-const Productos = () =>{
-    //estilos para los fondos
-=======
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
@@ -25,6 +19,8 @@ const Productos = () =>{
     const [fecha_alta, setFecha_alta] = useState('2023-08-03 10:00:00');
     const [fotografia, setFotografia] = useState('');
 
+    const [data, setData] = useState([])
+
     const handleAdd = () =>{
         var formdata = new FormData();
         formdata.append("cod_producto", cod_producto);
@@ -43,22 +39,21 @@ const Productos = () =>{
         formdata.append("fecha_alta", fecha_alta);
         formdata.append("fotografia", fotografia);
 
-            var requestOptions = {
-            mode : 'no-cors',
-            header: {
-                'Content-Type': "application/json, charset=UTF-8"
-            },
-            method: 'POST',
-            body: formdata,
-            };
+        var requestOptions = {
+        header: {
+            'Content-Type': "application/json, charset=UTF-8"
+        },
+        method: 'POST',
+        body: formdata
+        };
 
-            fetch("http://localhost/prueba_1/index.php/Api/DAF/", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+        fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS/", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
     }
 
-    const [data, setData] = useState([])
+    
         fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
         .then(response => response.json())
         .then(result => setData(result))
@@ -77,7 +72,6 @@ const Productos = () =>{
             .catch(error => console.log('error', error));
     }
 
->>>>>>> Abigail
     const amarillo={
         background:'#ffde59'
       }
@@ -279,35 +273,9 @@ const Productos = () =>{
                      
                     </td>
                 </tr>
-<<<<<<< HEAD
-            </thead>
-            <tbody style={amarillo}>
-                
-                <tr>
-                     <td>1</td>
-                     <td>CHAIR2</td>
-                     <td>Chair</td>
-                     <td>Silla</td>
-                     <td>2</td>
-                     <td>Negra</td>
-                     <td>Plastico</td>
-                     <td>4</td>
-                     <td>10, 20, 45</td>
-                     <td>350</td>
-                     <td>Silla con respaldo de felpa</td>
-                     <td>14-06-2023</td>
-                     <td>x</td>
-                     <td>
-                     <i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i>
-                     <i className="fas fa-pen" style={icon}></i>
-                     </td>
-                </tr>
-            </tbody>
-=======
                 ))}
 
                 </tbody>
->>>>>>> Abigail
         </table>
     </div>
     </section>

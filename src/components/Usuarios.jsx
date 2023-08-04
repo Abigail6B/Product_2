@@ -56,13 +56,13 @@ const Usuarios = () => {
             body: formdata,
         };
 
-        fetch("http://localhost/prueba1/index.php/Api/Usuarios/", requestOptions)
+        fetch("http://localhost/prueba_1/index.php/Api/Usuarios/", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
        }
        useEffect(() => {        
-          fetch("http://localhost/prueba1/index.php/Api/Usuarios/")
+          fetch("http://localhost/prueba_1/index.php/Api/Usuarios/")
             .then(response => response.json())
             .then(result => setUsu(result))
             .catch(error => console.log('error', error));

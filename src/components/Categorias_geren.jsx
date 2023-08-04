@@ -1,6 +1,14 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export const Categorias_geren = () => {
+
+    const [data, setData] = useState([])
+        fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA")
+        .then(response => response.json())
+        .then(result => setData(result))
+        .catch(error => console.log('error', error));
+    
+
     const amarillo={
         background:'#ffde59'
       }
@@ -42,12 +50,15 @@ export const Categorias_geren = () => {
                             </tr>
                         </thead>
                         <tbody className="text-center">
-                            <tr style={amarillo}>
-                                <td>1</td>
-                                <td>SN_7821</td>
-                                <td>Sillones</td>
-                                <td>16/06/2023</td>
-                            </tr>
+                        {data.map((cate)=>(
+                            <tr key={cate.id_categoria} style={amarillo} >
+                            <td>{cate.id_categoria}</td>
+                            <td>{cate.codigo}</td>
+                            <td>{cate.tipo}</td>
+                            <td>{cate.fecha_alta}</td>
+                        </tr>
+                            
+                        ))}
                         
                         </tbody>
                     </table>
