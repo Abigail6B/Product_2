@@ -44,7 +44,7 @@ const Categorias = () => {
       .then(result => console.log(result))
         .catch(error => console.log('error', error));
     }
-  
+    
     const amarillo={
       background:'#ffde59'
     }
@@ -134,7 +134,7 @@ const Categorias = () => {
                       <td >
                         <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(cate.id_categoria)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
                         
-                        <button className='btn col-lg-4 offset-md-1 '><i className="fas fa-pen" style={icon}></i></button>
+                        <button className='btn col-lg-4 offset-md-1 '> <Link to={`/categoria_actualizar/${cate.id_categoria}`} className=""><i className="fas fa-pen" style={icon}></i></Link></button>
                       </td>
                     </tr>
                   ))}
