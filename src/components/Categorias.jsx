@@ -1,7 +1,7 @@
 import React from 'react'
 
 const Categorias = () => {
-  
+//se crean estilos para darle color a ciertos apartados  
   const rosa={
     background:'#ffde59'
   }
@@ -34,6 +34,7 @@ const Categorias = () => {
       </section>
   
       <section className='content'>
+       
       <div className="card ">
           <div className="card-header"style={azul}>
             <h3 className="card-title"><i className="fas fa-plus-square"></i>Registro de Categorias</h3>
@@ -88,13 +89,6 @@ const Categorias = () => {
                   </tr>
               </tbody>
               <tfoot>
-                          <tr>
-                              <th>Rendering engine</th>
-                              <th>Browser</th>
-                              <th>Platform(s)</th>
-                              <th>Engine version</th>
-                              <th>CSS grade</th>
-                          </tr>
                           </tfoot>
           </table>
       </section>
@@ -104,4 +98,4 @@ const Categorias = () => {
   }
   
 
-export default Categorias;
+export default Categorias;//se exporta para  poder utilizarlo en otros componentes

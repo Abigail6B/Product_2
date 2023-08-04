@@ -1,6 +1,8 @@
 import React from 'react'
-
+import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 const Usuarios = () => {
+    //se crean estilos para las fuentes y los iconos
     const rosa={
         background:'#ffde59'
       }
@@ -13,6 +15,54 @@ const Usuarios = () => {
        const iconN={
         color:'#000'
        }
+
+       
+       const [clave_empleado, setClave_empleado] = useState('');
+       const [nombre, setNombre] = useState('');
+       const [apellido_p, setApellido_p] = useState('');
+       const [apellido_m, setApellido_m] = useState('');
+       const [puesto, setPuesto] = useState('');
+       const [fotografia, setFotografia] = useState('');
+       const [user, setUser] = useState('');
+       const [password, setPassword] = useState('');
+       const [fecha_alta, setFecha_alta] = useState('');
+       const [usu, setUsu] = useState([]);
+       //console.log(usu);
+
+       const handleAdd = () =>{
+        var formdata = new FormData();
+        formdata.append("clave_empleado", clave_empleado);
+        formdata.append("nombre", nombre);
+        formdata.append("apellido_p", apellido_p);
+        formdata.append("apellido_m", apellido_m);
+        formdata.append("puesto", puesto);
+        formdata.append("fotografia", fotografia);
+        formdata.append("user", user);
+        formdata.append("password", password);
+        formdata.append("fecha_alta", fecha_alta);
+
+        var requestOptions = {
+            mode: 'no-cors',
+            header: {
+                'Content-type ' : "application/json, charset=utf-8"
+            },
+            method: 'POST',
+            body: formdata,
+        };
+
+        fetch("http://localhost/prueba1/index.php/Api/Usuarios/", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+       }
+       useEffect(() => {        
+          fetch("http://localhost/prueba1/index.php/Api/Usuarios/")
+            .then(response => response.json())
+            .then(result => setUsu(result))
+            .catch(error => console.log('error', error));
+            
+       }, []);
+      console.log(usu);
     return (
         <>
          <div className='content-wrapper'>
@@ -49,24 +99,29 @@ const Usuarios = () => {
                             <div className="col-4">
                                 <div className='form-group'>
                                     <label htmlFor="">Clave del empleado </label>
-                                    <input  className="form-control" type="text" id='clave_emp' name='clave_emp' placeholder='Escribe aqui' />
+                                    <input  className="form-control" type="text" 
+                                    id='clave_emp' name='clave_emp' 
+                                    placeholder='Escribe aqui'
+                                    valor={clave_empleado}
+                                    onChange={event => setClave_empleado( event.target.value)} />
                                 </div>
                             </div>
                             <div className="col-4">
                                 <div className='form-group'>
                                     <label htmlFor="">Puesto</label>
-                                    <select name="cpuesto" id="puesto" className="form-control">
-                                        <option value="">-Seleccione</option>
-                                        <option value="Recamaras">Gerente</option>
-                                        <option value="Oficina">Emppleado de mostrador</option>
-                                        <option value="Sala">Lider</option>
-                                    </select>
+                                    <input  className="form-control" type="text" 
+                                    id='puesto' name='puesto' 
+                                    placeholder='Escribe aqui'
+                                    valor={puesto}
+                                    onChange={event => setPuesto( event.target.value)} />
                                 </div>
                             </div>
                             <div className="col-4">
                                 <div className='form-group'>
                                     <label htmlFor="">Fecha de alta</label>
-                                    <input  className="form-control" type="date" id='fecha' name='fecha' />
+                                    <input  className="form-control" type="date" 
+                                    id='fecha' name='fecha' valor={fecha_alta}
+                                    onChange={event => setFecha_alta( event.target.value)}/>
                                 </div>
                             </div>
                     </div>
@@ -74,19 +129,28 @@ const Usuarios = () => {
                         <div className="col-4">
                             <div className='form-group'>
                                 <label htmlFor="">Nombre del Empleado</label>
-                                <input  className="form-control" type="text" id='nombre' name='nombre' placeholder='Escribe aqui' />
+                                <input  className="form-control" type="text" 
+                                id='nombre' name='nombre' placeholder='Escribe aqui'
+                                valor={nombre}
+                                onChange={event => setNombre( event.target.value)} />
                             </div>
                         </div>
                         <div className="col-4">
                             <div className='form-group'>
                                 <label htmlFor="">Apellido Paterno</label>
-                                <input  className="form-control" type="text" id='a_paterno' name='a_paterno' placeholder='Escribe aqui' />
+                                <input  className="form-control" type="text" 
+                                id='a_paterno' name='a_paterno' placeholder='Escribe aqui'
+                                valor={apellido_p}
+                                onChange={event => setApellido_p( event.target.value)} />
                             </div>
                         </div>
                         <div className="col-4">
                             <div className='form-group'>
                                 <label htmlFor="">Apellido Materno</label>
-                                <input  className="form-control" type="text" id='a_materno' name='a_materno' placeholder='Negro' />
+                                <input  className="form-control" type="text" 
+                                id='a_materno' name='a_materno' placeholder='Escribir aqui' 
+                                valor={apellido_m}
+                                onChange={event => setApellido_m( event.target.value)}/>
                             </div>
                         </div>
                     </div>
@@ -94,26 +158,35 @@ const Usuarios = () => {
                         <div className="col-4">
                             <div className='form-group'>
                                 <label htmlFor="">Usuario</label>
-                                <input  className="form-control" type="text" id='user' name='user' placeholder='Escribe aqui' />
+                                <input  className="form-control" type="text" 
+                                id='user' name='user' placeholder='Escribe aqui'
+                                valor={user}
+                                onChange={event => setUser( event.target.value)} />
                             </div>
                         </div>
                         <div className="col-4">
                             <div className='form-group'>
                                 <label htmlFor="">Contraseña</label>
-                                <input  className="form-control" type="text" id='password' name='password' placeholder='Escribe aqui' />
+                                <input  className="form-control" type="text" 
+                                id='password' name='password' placeholder='Escribe aqui' 
+                                valor={password}
+                                onChange={event => setPassword( event.target.value)}/>
                             </div>
                         </div>
                         <div className="col-4">
                             <div className="form-group">
                                 <label htmlFor="">Fotografía</label>
-                                <input type="file" className='form-control' id='foto' name='foto'/>
+                                <input type="file" className='form-control' id='foto' 
+                                name='foto' valor={fotografia}
+                                onChange={event => setFotografia( event.target.value)}/>
                             </div>
                         </div>
                     </div>
                     
                 </div>
                 <div className="card-footer">
-                    <button className="btn submited float-right" style={azul}>Aceptar</button>
+                    <Link to='/Home' className="btn btn-secondary">Cancelar</Link>
+                    <button className="btn submited float-right" style={azul} onClick={ ()=> handleAdd() }>Aceptar</button>
                 </div>
             </div>
             
@@ -134,20 +207,23 @@ const Usuarios = () => {
                 </tr>
             </thead>
             <tbody style={rosa}>
-                <tr>
-                     <td>1</td>
-                     <td>UTP0144685</td>
-                     <td>Gerente</td>
-                     <td>Fatima Ortega</td>
-                     <td>OrtegaF</td>
-                     <td>1111</td>
-                     <td>x</td>
-                     <td>17-08-2020</td>
-                     <td>
-                     <i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i>
-                     <i className="fas fa-pen" style={icon}></i>
-                     </td>
-                </tr>
+                { usu.map((u) =>(
+                        <tr key={u.id_usuario}>
+                            <td>{u.id_usuario}</td>
+                            <td>{u.clave_empleado}</td>
+                            <td>{u.puesto}</td>
+                            <td>{u.nombre} {u.apellido_p} {u.apellido_m}</td>
+                            <td>{u.user}</td>
+                            <td>{u.password}</td>
+                            <td>{u.fotografia}</td>
+                            <td>{u.fecha_alta}</td>
+                            <td>
+                                <i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i>
+                                <i className="fas fa-pen" style={icon}></i>
+                            </td>
+                        </tr>
+                    ))
+                }
             </tbody>
             <tfoot>
                        

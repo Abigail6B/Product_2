@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Productos = () =>{
+    //estilos para los fondos
     const rosa={
         background:'#ffde59'
       }
@@ -13,6 +14,7 @@ const Productos = () =>{
        const iconN={
         color:'#000'
        }
+
     return (
         <>
 <div className='content-wrapper '>
@@ -169,6 +171,7 @@ const Productos = () =>{
                 </tr>
             </thead>
             <tbody style={rosa}>
+                
                 <tr>
                      <td>1</td>
                      <td>CHAIR2</td>

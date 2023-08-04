@@ -1,8 +1,10 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
-import user from '../assets/user.png'
+import { Link } from 'react-router-dom' //se importa esta libreria con la finalidad de poder hacer uso de links 
+                                        //y navegar entre vistas
+import user from '../assets/user.png'   // se importa la imagen que se utilizará para el ususario
 
 export const Sidebar = () => {
+  //se crean estilos para asignar color a las fuentes y el fondo del sidebar
   const rosa={
     background:'#ffde59'
   }
@@ -103,14 +105,6 @@ export const Sidebar = () => {
               </p>
             </Link>
           </li>
-
-
-          
-         
-          
-         
-          
-    
         </ul>
       </nav>
     </div>
