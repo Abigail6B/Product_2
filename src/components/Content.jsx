@@ -1,15 +1,18 @@
 import React from 'react'
 
 export const Content = () => {
-    const rosa={
+    const amarillo={
         background:'#ffde59'
       }
-    const azul={
+    const cafe={
         background:'#8e582c'
     }
     
     const icon={
-        color:'#83C5BE'
+        color:'#8e582c'
+    }
+    const letras={
+        color:'#FFFF'
     }
   return (
     <>
@@ -33,8 +36,8 @@ export const Content = () => {
         <section className="content">
 
         <div className="card" >
-            <div className="card-header" style={azul}>
-            <h3 className="card-title"><i className="fas fa-plus-square"></i> Registro de entradas y salidas</h3>
+            <div className="card-header" style={cafe}>
+            <h3 className="card-title" style={letras}><i className="fas fa-plus-square" style={letras}></i> Registro de entradas y salidas</h3>
 
             <div className="card-tools">
                 <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -45,7 +48,7 @@ export const Content = () => {
                 </button>
             </div>
             </div>
-            <div className="card-body " style={rosa}>
+            <div className="card-body " style={amarillo}>
                 <div className="row">
                         <div className="form-group col-6">
                             <label >Codigo del producto</label>
@@ -61,8 +64,8 @@ export const Content = () => {
                         </div>
                 </div>
             </div>
-            <div className="card-footer" style={rosa}>
-                <button className="btn btn-info submited float-right">Aceptar</button>
+            <div className="card-footer">
+                <button className="btn submited float-right" style={cafe}> <b style={letras}> Aceptar</b></button>
             </div>
         </div>
 
@@ -71,16 +74,16 @@ export const Content = () => {
             <div className="card-body card-info">
                 <table className="table table-bordered table-hover table-striped" id="table_ensal">
                     <thead>
-                        <tr className="text-center" style={azul}>
-                            <th>No.</th>
-                            <th>Catalogo</th>
-                            <th>Tipo</th>
-                            <th>Fecha</th>
-                            <th>Opciones</th>
+                        <tr className="text-center" style={cafe}>
+                            <th style={letras}>No.</th>
+                            <th style={letras}>Catalogo</th>
+                            <th style={letras}>Tipo</th>
+                            <th style={letras}>Fecha</th>
+                            <th style={letras}>Opciones</th>
                         </tr>
                     </thead>
                     <tbody className="text-center">
-                        <tr style={rosa}>
+                        <tr style={amarillo}>
                             <td>1</td>
                             <td>Sillones</td>
                             <td>Entrada</td>

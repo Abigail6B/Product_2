@@ -1,20 +1,31 @@
 import React from 'react'
 
 const Productos = () =>{
+<<<<<<< HEAD
     //estilos para los fondos
     const rosa={
+=======
+    const amarillo={
+>>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
         background:'#ffde59'
       }
-    const azul={
+    const cafe={
         background:'#8e582c'
     }
     const icon={
-        color:'#83C5BE'
-       }
-       const iconN={
+        color:'#8e582c'
+    }
+    const iconN={
         color:'#000'
+<<<<<<< HEAD
        }
 
+=======
+    }
+    const letras={
+        color:'#FFFF'
+    }
+>>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
     return (
         <>
 <div className='content-wrapper '>
@@ -35,15 +46,15 @@ const Productos = () =>{
   </section>
 <section className="content">
         <div className="card ">
-            <div className="card-header" style={azul}>
-                <h3 className="card-title"><i className="fas fa-plus-square"></i>Registro de Productos</h3>
+            <div className="card-header" style={cafe}>
+                <h3 className="card-title" style={letras}><i className="fas fa-plus-square" style={letras}></i>Registro de Productos</h3>
                 <div className="card-tools">
                     <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i className="fas fa-minus" style={iconN}></i>
                     </button>
                 </div>
             </div>
-                <div className="card-body" style={rosa}>
+                <div className="card-body" style={amarillo}>
                     <div className="row">
                             <div className="col-4">
                                 <div className='form-group'>
@@ -147,13 +158,13 @@ const Productos = () =>{
                     </div>
                 </div>
                 <div className="card-footer">
-                    <button className="btn submited float-right" style={azul}>Aceptar</button>
+                    <button className="btn submited float-right" style={cafe}><b style={letras}> Aceptar</b></button>
                 </div>
             </div>
  <div>
   <table className="table table-bordered table-striped table-hover" id='table_Prod'>
-            <thead style={azul}>
-                <tr>
+            <thead style={cafe}>
+                <tr style={letras}>
                     <th>No.</th>
                     <th>Código</th>
                     <th>Marca</th>
@@ -170,8 +181,12 @@ const Productos = () =>{
                     <th>Opciones</th>
                 </tr>
             </thead>
+<<<<<<< HEAD
             <tbody style={rosa}>
                 
+=======
+            <tbody style={amarillo}>
+>>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
                 <tr>
                      <td>1</td>
                      <td>CHAIR2</td>
@@ -192,9 +207,6 @@ const Productos = () =>{
                      </td>
                 </tr>
             </tbody>
-            <tfoot>
-                       
-                        </tfoot>
         </table>
     </div>
     </section>

@@ -2,18 +2,23 @@ import React from 'react'
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 const Usuarios = () => {
+<<<<<<< HEAD
     //se crean estilos para las fuentes y los iconos
     const rosa={
+=======
+    const amarillo={
+>>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
         background:'#ffde59'
       }
-    const azul={
+    const cafe={
         background:'#8e582c'
     }
     const icon={
-        color:'#83C5BE'
-       }
-       const iconN={
+        color:'#8e582c'
+    }
+    const iconN={
         color:'#000'
+<<<<<<< HEAD
        }
 
        
@@ -63,6 +68,12 @@ const Usuarios = () => {
             
        }, []);
       console.log(usu);
+=======
+    }
+    const letras={
+        color:'#FFFF'
+    }
+>>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
     return (
         <>
          <div className='content-wrapper'>
@@ -85,8 +96,8 @@ const Usuarios = () => {
 
           
             <div className="card ">
-                <div className="card-header" style={azul}>
-                <h3 className="card-title"><i className="fas fa-plus-square"></i>Registro de Usuarios</h3>
+                <div className="card-header" style={cafe}>
+                <h3 className="card-title" style={letras}><i className="fas fa-plus-square" style={letras}></i>Registro de Usuarios</h3>
 
                 <div className="card-tools">
                     <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -94,7 +105,7 @@ const Usuarios = () => {
                     </button>
                 </div>
                 </div>
-                <div className="card-body" style={rosa}>
+                <div className="card-body" style={amarillo}>
                     <div className="row">
                             <div className="col-4">
                                 <div className='form-group'>
@@ -185,27 +196,32 @@ const Usuarios = () => {
                     
                 </div>
                 <div className="card-footer">
+<<<<<<< HEAD
                     <Link to='/Home' className="btn btn-secondary">Cancelar</Link>
                     <button className="btn submited float-right" style={azul} onClick={ ()=> handleAdd() }>Aceptar</button>
+=======
+                    <button className="btn submited float-right" style={cafe}><b style={letras}> Aceptar</b></button>
+>>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
                 </div>
             </div>
             
 
 <div>
         <table className="table table-bordered table-striped table-hover" id='table_User'>
-            <thead style={azul}>
+            <thead style={cafe}>
                 <tr>
-                    <th>No.</th>
-                    <th>Clave</th>
-                    <th>Puesto</th>
-                    <th>Nombre</th>
-                    <th>Usuario</th>
-                    <th>Contraseña</th>
-                    <th>Fotografía</th>
-                    <th>Fecha</th>
-                    <th>Opciones</th>
+                    <th style={letras}>No.</th>
+                    <th style={letras}>Clave</th>
+                    <th style={letras}>Puesto</th>
+                    <th style={letras}>Nombre</th>
+                    <th style={letras}>Usuario</th>
+                    <th style={letras}>Contraseña</th>
+                    <th style={letras}>Fotografía</th>
+                    <th style={letras}>Fecha</th>
+                    <th style={letras}>Opciones</th>
                 </tr>
             </thead>
+<<<<<<< HEAD
             <tbody style={rosa}>
                 { usu.map((u) =>(
                         <tr key={u.id_usuario}>
@@ -224,6 +240,23 @@ const Usuarios = () => {
                         </tr>
                     ))
                 }
+=======
+            <tbody style={amarillo}>
+                <tr>
+                     <td>1</td>
+                     <td>UTP0144685</td>
+                     <td>Gerente</td>
+                     <td>Fatima Ortega</td>
+                     <td>OrtegaF</td>
+                     <td>1111</td>
+                     <td>x</td>
+                     <td>17-08-2020</td>
+                     <td>
+                     <i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i>
+                     <i className="fas fa-pen" style={icon}></i>
+                     </td>
+                </tr>
+>>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
             </tbody>
             <tfoot>
                        

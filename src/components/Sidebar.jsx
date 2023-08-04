@@ -14,10 +14,10 @@ export const Sidebar = () => {
   return (
     <>
         
-  <aside className="main-sidebar sidebar-dark-primary elevation-4" style={rosa}>
-    <a href="../../index3.html" className="brand-link">
-      <span style={letras} className="brand-text font-weight-light">Muebleria DAF</span>
-    </a>
+  <aside className="main-sidebar sidebar-dark-primary" style={rosa}>
+    <Link to="/Home" className="brand-link">
+        <span style={letras} className="brand-text font-weight-light">Muebleria DAF</span>
+    </Link>
 
     <div className="sidebar">
       <div className="user-panel mt-3 pb-3 mb-3 d-flex">
@@ -108,8 +108,6 @@ export const Sidebar = () => {
         </ul>
       </nav>
     </div>
-  </aside>
-  <aside className="control-sidebar control-sidebar-dark">
   </aside>
     </>
   )

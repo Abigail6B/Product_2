@@ -2,12 +2,15 @@ import React from 'react'
 
 function Productos_geren() {
 
-  const rosa={
+  const amarillo={
     background:'#ffde59'
   }
-const azul={
+  const cafe={
     background:'#8e582c'
-}
+  }
+  const letras={
+    color:'#FFFF'
+  }
   return (
     <>
       <div className="content-wrapper">
@@ -31,24 +34,24 @@ const azul={
           <div className="card">
             <div className="card-body card-info">
               <table className="table table-bordered table-hover table-striped" id="table">
-                <thead style={azul}>
+                <thead style={cafe}>
                   <tr>
-                    <th>No.</th>
-                    <th>Código</th>
-                    <th>Marca</th>
-                    <th>No.Pza</th>
-                    <th>Color</th>
-                    <th>Material</th>
-                    <th>Unidades</th>
-                    <th>Dimensiones</th>
-                    <th>Precio</th>
-                    <th>Descripcion</th>
-                    <th>Fecha</th>
-                    <th>Fotografía</th>
+                    <th style={letras}>No.</th>
+                    <th style={letras}>Código</th>
+                    <th style={letras}>Marca</th>
+                    <th style={letras}>No.Pza</th>
+                    <th style={letras}>Color</th>
+                    <th style={letras}>Material</th>
+                    <th style={letras}>Unidades</th>
+                    <th style={letras}>Dimensiones</th>
+                    <th style={letras}>Precio</th>
+                    <th style={letras}>Descripcion</th>
+                    <th style={letras}>Fecha</th>
+                    <th style={letras}>Fotografía</th>
 
                   </tr>
                 </thead>
-                <tbody style={rosa}>
+                <tbody style={amarillo}>
                   <tr>
                     <td>1</td>
                     <td>SN_7821</td>

@@ -1,6 +1,7 @@
 import React from 'react'
 
 const Categorias = () => {
+<<<<<<< HEAD
 //se crean estilos para darle color a ciertos apartados  
   const rosa={
     background:'#ffde59'
@@ -14,6 +15,24 @@ const Categorias = () => {
        const iconN={
         color:'#000'
        }
+=======
+  
+    const amarillo={
+      background:'#ffde59'
+    }
+    const cafe={
+        background:'#8e582c'
+    }
+    const icon={
+      color:'#8e582c'
+    }
+    const iconN={
+      color:'#000'
+    }
+    const letras={
+      color:'#FFFF'
+    }
+>>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
     return (
       <>
       <div className='content-wrapper'>
@@ -36,8 +55,8 @@ const Categorias = () => {
       <section className='content'>
        
       <div className="card ">
-          <div className="card-header"style={azul}>
-            <h3 className="card-title"><i className="fas fa-plus-square"></i>Registro de Categorias</h3>
+          <div className="card-header"style={cafe}>
+            <h3 className="card-title" style={letras}><i className="fas fa-plus-square" style={letras}></i>Registro de Categorias</h3>
   
             <div className="card-tools">
               <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -45,7 +64,7 @@ const Categorias = () => {
               </button>
             </div>
           </div>
-          <div className="card-body" style={rosa}>
+          <div className="card-body" style={amarillo}>
             <div className='form-group'>
                   <label htmlFor="">Código de Categoria</label>
                   <input  className="form-control" type="text" id='cod_cat' name='cod_cat' placeholder='Escribe aqui' />
@@ -61,14 +80,14 @@ const Categorias = () => {
             </div>
           </div>
           <div className="card-footer">
-            <button className="btn  submited" type='' style={azul}>Registrar</button>
+                    <button className="btn submited float-right" style={cafe}><b style={letras}> Aceptar</b></button>
           </div>
         </div>
       </section>
       <section className='content'>
           <table className="table table-bordered table-striped table-hover" id='table_Cat'>
-              <thead style={azul}>
-                  <tr>
+              <thead style={cafe}>
+                  <tr style={letras}>
                       <th>No.</th>
                       <th>Código</th>
                       <th>Tipo</th>
@@ -76,7 +95,7 @@ const Categorias = () => {
                       <th>Opciones</th>
                   </tr>
               </thead>
-              <tbody style={rosa}>
+              <tbody style={amarillo}>
                   <tr>
                       <th>1</th>
                       <th>ACCOFF201</th>
@@ -88,8 +107,11 @@ const Categorias = () => {
                       </th>
                   </tr>
               </tbody>
+<<<<<<< HEAD
               <tfoot>
                           </tfoot>
+=======
+>>>>>>> b6e446356485dbd4eaa3744a02b469fe886f289f
           </table>
       </section>
       </div>
