@@ -16,19 +16,13 @@ import { BrowserRouter, Route, Routes} from 'react-router-dom'
 
 function App() {
 
-  const [data, setData] = useState([])
-        fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA")
-        .then(response => response.json())
-        .then(result => setData(result))
-        .catch(error => console.log('error', error));
+   const id_categoria = 0;
   return (
     <BrowserRouter>
       <Routes>
         <Route path='/entradas_salidas' element={ <SalidasEnt /> }  />
         <Route path='/categoria_gerencia' element={ <Catge_ /> }  />
-        {data.map((cate)=>(
-        <Route key={cate.id_categoria} path={`/categoria_actualizar/${cate.id_categoria}`} element={ <Categorias_update_view /> }  />
-        ))}
+        <Route path={`/categoria_actualizar/:id`} element={ <Categorias_update_view /> }  />
         <Route path='/entradas_salidas_gerencia' element={ <Esgeren /> }  />
         <Route path='/Informes' element={<Informes />} />
         <Route exact path='/Categorias' element={<Categorias_view/>}/>
