@@ -1,8 +1,6 @@
 import React from 'react'
 import DAF from '../assets/DAF.png'
 import { useState} from "react"
-import Home_view from './Home_view';
-import Inicio_view from './Inicio_view';
 
 const Home = () => {
   //estilos para los fondos de color
@@ -48,9 +46,14 @@ const Home = () => {
             if(li.puesto=='Operador'){
               return window.location.href = "http://localhost:5173/homeO";
             }
+            if(li.puesto=='Jefe'){
+              return window.location.href = "http://localhost:5173/homeJ";
+            }
+            if(li.puesto=='Gerente'){
+              return window.location.href = "http://localhost:5173/homeG";
+            }
             //console.log(li.nombre);
           }
-          
         })
       //{(listaU.user===user && listaU.password===password)?<Inicio_view/>:<Home_view/>}
     }

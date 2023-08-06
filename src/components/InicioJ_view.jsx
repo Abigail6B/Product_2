@@ -1,18 +1,18 @@
 import React from 'react'
 import { Navbar } from './Navbar'
-import { Sidebar } from './Sidebar'
+import { SidebarJ } from './SidebarJ'
 import { Footer } from './Footer'
 import {Inicio} from './Inicio'
 
-const Inicio_view = () => {
+const InicioJ_view = () => {
   return (
     <>
         <Navbar />
-        <Sidebar/>
+        <SidebarJ/>
         <Inicio/>
         <Footer/>
     </>
   )
 }
 
-export default Inicio_view
+export default InicioJ_view

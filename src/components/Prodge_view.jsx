@@ -1,7 +1,7 @@
 import React from 'react'
 //importar todos los componentes necesarios para la unión
 import { Navbar } from './Navbar'
-import { Sidebar } from './Sidebar'
+import { SidebarG } from './SidebarG'
 import { Footer } from './Footer'
 import Productos_geren from './Productos_geren'
 
@@ -11,7 +11,7 @@ function Prodge_view() {
         <>
             <Navbar />
 
-            <Sidebar />
+            <SidebarG />
             <Productos_geren />
             <Footer />
         </>
