@@ -1,3 +1,4 @@
+//IMPORTACIÓN DE LAS LLIBRERIAS NECESARIAS PARA EL USO DE METODOS DE REACT
 import React from 'react'
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"

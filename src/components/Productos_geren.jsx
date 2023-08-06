@@ -61,7 +61,7 @@ function Productos_geren() {
                     <th style={letras}>Descripcion</th>
                     <th style={letras}>Fecha</th>
                     <th style={letras}>Fotografía</th>
-                    <th style={letras}>Opciones</th>
+                    
 
                   </tr>
                 </thead>
@@ -84,10 +84,6 @@ function Productos_geren() {
                     <td>{productos.descripcion}</td>
                     <td>{productos.fecha_alta}</td>
                     <td>{productos.fotografia}</td>
-                    <td >
-                        <button className='btn btn-sm bg-blue col-lg-4 offset-md-1'>Editar</button>
-                        <button className='btn btn-sm bg-danger col-lg-4 offset-md-1 '>Borrar</button>
-                    </td>
                 </tr>
                 ))}
 

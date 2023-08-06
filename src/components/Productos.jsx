@@ -19,6 +19,8 @@ const Productos = () =>{
     const [fecha_alta, setFecha_alta] = useState('2023-08-03 10:00:00');
     const [fotografia, setFotografia] = useState('');
 
+    const [data, setData] = useState([])
+
     const handleAdd = () =>{
         var formdata = new FormData();
         formdata.append("cod_producto", cod_producto);
@@ -37,23 +39,22 @@ const Productos = () =>{
         formdata.append("fecha_alta", fecha_alta);
         formdata.append("fotografia", fotografia);
 
-            var requestOptions = {
-            mode : 'no-cors',
-            header: {
-                'Content-Type': "application/json, charset=UTF-8"
-            },
-            method: 'POST',
-            body: formdata,
-            };
+        var requestOptions = {
+        header: {
+            'Content-Type': "application/json, charset=UTF-8"
+        },
+        method: 'POST',
+        body: formdata
+        };
 
-            fetch("http://localhost/prueba1/index.php/Api/PRODUCTOS/", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
+        fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS/", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
     }
 
-    const [data, setData] = useState([])
-        fetch("http://localhost/prueba1/index.php/Api/PRODUCTOS")
+    
+        fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
         .then(response => response.json())
         .then(result => setData(result))
         .catch(error => console.log('error', error));
