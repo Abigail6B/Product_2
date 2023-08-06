@@ -9,6 +9,10 @@ import Informes from './components/Informes_view';
 import Prodge_view from './components/Prodge_view';
 import Home_view from './components/Home_view';
 import Inicio_view from './components/Inicio_view';
+//Operador de almacen
+import CategoriasO_view from './components/CategoriasO_view'; 
+import ProductosO_view from './components/ProductosO_view';
+import InicioO_view from './components/InicioO_view';
 
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 
@@ -27,6 +31,9 @@ function App() {
         <Route path='/Productos_Gerencia' element={<Prodge_view/>}/>
         <Route path='/Usuarios' element={<Usuarios_view/>}/>
         <Route path='/Home' element={<Inicio_view/>} />
+        <Route path='/HomeO' element={<InicioO_view/>} />
+        <Route path='/ProductosO' element={<ProductosO_view/>} />
+        <Route path='/CategoriasO' element={<CategoriasO_view/>} />
       </Routes>
     </BrowserRouter>
 )

@@ -1,6 +1,8 @@
 import React from 'react'
+import { useState, useEffect } from "react"
 
 export const Entrada_salida_geren = () => {
+    //estilos para darle color a los fondos
     const amarillo={
         background:'#ffde59'
       }
@@ -10,6 +12,14 @@ export const Entrada_salida_geren = () => {
     const letras={
         color:'#FFFF'
     }
+    const [listaES, setListaES] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost/prueba1/index.php/Api/EntradasyS")
+        .then(response => response.json())
+        .then(result => setListaES(result))
+        .catch(error => console.log('error', error));
+    }, [])
+    
   return (
     <>
         <div className="content-wrapper">
@@ -36,19 +46,22 @@ export const Entrada_salida_geren = () => {
                         <thead>
                             <tr className="text-center" style={cafe}>
                                 <th style={letras}>No.</th>
-                                <th style={letras}>Catalogo</th>
                                 <th style={letras}>Tipo</th>
+                                <th style={letras}>Producto</th>
                                 <th style={letras}>Fecha</th>
                             </tr>
                         </thead>
                         <tbody className="text-center">
-                            <tr style={amarillo}>
-                                <td>1</td>
-                                <td>Sillones</td>
-                                <td>Entrada</td>
-                                <td>16/06/2023</td>
-                            </tr>
-                        
+                            {
+                                listaES.map((es) =>(
+                                    <tr style={amarillo}>
+                                        <td>{es.id_registro}</td>
+                                        <td>{es.tipo}</td>
+                                        <td>{es.id_producto}</td>
+                                        <td>{es.fecha}</td>
+                                    </tr>
+                                ))
+                            }
                         </tbody>
                     </table>
                 </div>

@@ -22,7 +22,7 @@ const Usuarios = () => {
         color:'#FFFF'
     }
 
-       
+   //las variables de estados que sirven para recuperar los valores y guardarlos.    
        const [clave_empleado, setClave_empleado] = useState('');
        const [nombre, setNombre] = useState('');
        const [apellido_p, setApellido_p] = useState('');
@@ -32,9 +32,9 @@ const Usuarios = () => {
        const [user, setUser] = useState('');
        const [password, setPassword] = useState('');
        const [fecha_alta, setFecha_alta] = useState('');
-       const [usu, setUsu] = useState([]);
        //console.log(usu);
 
+       //metodo para guardar usuarios
        const handleAdd = () =>{
         var formdata = new FormData();
         formdata.append("clave_empleado", clave_empleado);
@@ -61,14 +61,27 @@ const Usuarios = () => {
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
        }
-       useEffect(() => {        
-          fetch("http://localhost/prueba1/index.php/Api/Usuarios/")
+       
+//permite mostrar los usuarios registrados
+            const [usu, setUsu] = useState([])
+             fetch("http://localhost/prueba1/index.php/Api/Usuarios/")
             .then(response => response.json())
             .then(result => setUsu(result))
             .catch(error => console.log('error', error));
-            
-       }, []);
-      console.log(usu);
+            //console.log(usu);
+
+//metodo para eliminar un usuario
+       const handleDelete =(id)=>{
+        var requestOptions = {
+            method: 'DELETE',
+            redirect: 'follow'
+          };
+        fetch(`http://localhost/prueba1/index.php/Api/Usuarios/${id}`,requestOptions )
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+       }
+      //console.log(usu);
     return (
         <>
          <div className='content-wrapper'>
@@ -115,11 +128,17 @@ const Usuarios = () => {
                             <div className="col-4">
                                 <div className='form-group'>
                                     <label htmlFor="">Puesto</label>
-                                    <input  className="form-control" type="text" 
+                                    <select  className="form-control" type="text" 
                                     id='puesto' name='puesto' 
                                     placeholder='Escribe aqui'
                                     valor={puesto}
-                                    onChange={event => setPuesto( event.target.value)} />
+                                    onChange={event => setPuesto( event.target.value)} >
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Operador">Operador de Almacén</option>
+                                        <option value="Jefe">Jefe de Almacén</option>
+                                        <option value="Gerente">Gerente</option>
+                                    </select>
                                 </div>
                             </div>
                             <div className="col-4">
@@ -224,8 +243,8 @@ const Usuarios = () => {
                             <td>{u.fotografia}</td>
                             <td>{u.fecha_alta}</td>
                             <td>
-                                <i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i>
-                                <i className="fas fa-pen" style={icon}></i>
+                            <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(u.id_usuario)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
+                            <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(u.id_usuario)}><i className="fas fa-pen " alt="Actualizar" style={icon}></i></button>
                             </td>
                         </tr>
                     ))
