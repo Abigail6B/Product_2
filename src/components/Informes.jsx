@@ -28,6 +28,7 @@ const Informes = () => {
     }
 
    
+    const showProduct = () =>{
         fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
         .then(response => response.json())
         .then(result =>{ var respuesta =result
@@ -41,6 +42,14 @@ const Informes = () => {
             setProducto(auxProducto);
             
         })
+
+    }
+
+    useEffect(() => {
+      showProduct();
+    }, [])
+    
+
     
   
         

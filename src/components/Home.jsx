@@ -27,7 +27,7 @@ const Home = () => {
 
    const handleFoto = async() =>{
    }
-    fetch("http://localhost/prueba1/index.php/Api/Usuarios")
+    fetch("http://localhost/prueba_1/index.php/Api/Usuarios")
     .then(response => response.json())
     .then(result =>setListaU(result))
     .catch(error => console.log('error', error));

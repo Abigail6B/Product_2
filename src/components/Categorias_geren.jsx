@@ -4,7 +4,7 @@ export const Categorias_geren = () => {
 
     const [data, setData] = useState([])
     
-    const showData = async () => {
+    const showData =  () => {
         fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA")
             .then(response => response.json())
             .then(result => setData(result))

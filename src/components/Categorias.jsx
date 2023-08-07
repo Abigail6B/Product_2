@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
@@ -20,17 +20,26 @@ const Categorias = () => {
         redirect: 'follow'
       };
 
-      fetch("http://localhost/prueba1/index.php/Api/CATEGORIA/", requestOptions)
+      fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA/", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
     }
 
     const [data, setData] = useState([])
-        fetch("http://localhost/prueba1/index.php/Api/CATEGORIA")
+
+    const showCate = () =>{
+      fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA")
         .then(response => response.json())
         .then(result => setData(result))
         .catch(error => console.log('error', error));
+    }
+
+    useEffect(() => {
+      showCate();
+    }, [])
+    
+        
 
     const handleDelete = (id_categoria) =>{
       var requestOptions = {
@@ -38,7 +47,7 @@ const Categorias = () => {
         redirect: 'follow'
       };
             
-      fetch(`http://localhost/prueba1/index.php/Api/CATEGORIA/${id_categoria}`, 
+      fetch(`http://localhost/prueba_1/index.php/Api/CATEGORIA/${id_categoria}`, 
       requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))

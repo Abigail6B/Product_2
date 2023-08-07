@@ -1,13 +1,6 @@
-<<<<<<< HEAD
-import React, { useState } from 'react'
-import {Catge_} from './components/Catge_'
-import { Esgeren } from './components/Esgeren'
-import { SalidasEnt } from './components/SalidasEnt'
-=======
 import React from 'react'
 import { BrowserRouter, Route, Routes} from 'react-router-dom'
 //administrador
->>>>>>> Fatima
 import Categorias_view from './components/Categorias_view';
 import Productos_view from './components/Productos_view';
 import Usuarios_view from './components/Usuarios_view';
@@ -16,12 +9,6 @@ import { SalidasEnt } from './components/SalidasEnt'
 //home e inicio
 import Home_view from './components/Home_view';
 import Inicio_view from './components/Inicio_view';
-<<<<<<< HEAD
-import Categorias_update_view from './components/Categorias_update_view';
-
-import { BrowserRouter, Route, Routes} from 'react-router-dom'
-
-=======
 //Operador de almacen
 import CategoriasO_view from './components/CategoriasO_view'; 
 import ProductosO_view from './components/ProductosO_view';
@@ -36,7 +23,6 @@ import InicioJ_view from './components/InicioJ_view';
 import ProductosJ_view from './components/ProductosJ_view';
 import CategoriasJ_view from './components/CategoriasJ_view';
 import { SalidasEntJ } from './components/SalidasEntJ';
->>>>>>> Fatima
 
 function App() {
 
@@ -49,13 +35,7 @@ function App() {
 
         <Route path='/Usuarios' element={<Usuarios_view/>}/>
         <Route path='/entradas_salidas' element={ <SalidasEnt /> }  />
-<<<<<<< HEAD
-        <Route path='/categoria_gerencia' element={ <Catge_ /> }  />
-        <Route path={`/categoria_actualizar/:id`} element={ <Categorias_update_view /> }  />
-        <Route path='/entradas_salidas_gerencia' element={ <Esgeren /> }  />
-=======
         <Route path='/Productos' element={<Productos_view/>}/>
->>>>>>> Fatima
         <Route path='/Informes' element={<Informes />} />
         <Route exact path='/Categorias' element={<Categorias_view/>}/>
 

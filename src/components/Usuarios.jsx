@@ -57,19 +57,27 @@ const Usuarios = () => {
             body: formdata,
         };
 
-        fetch("http://localhost/prueba1/index.php/Api/Usuarios/", requestOptions)
+        fetch("http://localhost/prueba_1/index.php/Api/Usuarios/", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
        }
        
-//permite mostrar los usuarios registrados
-            const [usu, setUsu] = useState([])
-             fetch("http://localhost/prueba1/index.php/Api/Usuarios/")
-            .then(response => response.json())
-            .then(result => setUsu(result))
-            .catch(error => console.log('error', error));
-            //console.log(usu);
+    //permite mostrar los usuarios registrados
+    const [usu, setUsu] = useState([])
+    const showUser =  () =>{
+                fetch("http://localhost/prueba_1/index.php/Api/Usuarios/")
+                .then(response => response.json())
+                .then(result => setUsu(result))
+                .catch(error => console.log('error', error));
+                //console.log(usu);
+
+    }
+
+    useEffect(() => {
+      showUser()
+    }, []);
+    
 
 //metodo para eliminar un usuario
        const handleDelete =(id)=>{
@@ -77,7 +85,7 @@ const Usuarios = () => {
             method: 'DELETE',
             redirect: 'follow'
           };
-        fetch(`http://localhost/prueba1/index.php/Api/Usuarios/${id}`,requestOptions )
+        fetch(`http://localhost/prueba_1/index.php/Api/Usuarios/${id}`,requestOptions )
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
@@ -112,7 +120,7 @@ const Usuarios = () => {
             body: formdata,
         };
 
-        fetch("http://localhost/prueba1/index.php/Api/Usuarios/", requestOptions)
+        fetch("http://localhost/prueba_1/index.php/Api/Usuarios/", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));

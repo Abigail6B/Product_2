@@ -12,10 +12,10 @@ export const Entrada_salida_geren = () => {
     const letras={
         color:'#FFFF'
     }
-    //recupera los registros y los guarda en el []
+
     const [listaES, setListaES] = useState([]);
     useEffect(() => {
-        fetch("http://localhost/prueba1/index.php/Api/EntradasyS")
+        fetch("http://localhost/prueba_1/index.php/Api/EntradasyS")
         .then(response => response.json())
         .then(result => setListaES(result))
         .catch(error => console.log('error', error));

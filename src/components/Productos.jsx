@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom'
 
 const Productos = () =>{
@@ -53,11 +54,14 @@ const Productos = () =>{
         .catch(error => console.log('error', error));
     }
 
-    
+    const showData =  () =>{
         fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
         .then(response => response.json())
         .then(result => setData(result))
         .catch(error => console.log('error', error));
+    }
+    
+        
 
     const handleDelete = (id_producto) =>{
         var requestOptions = {
@@ -65,12 +69,17 @@ const Productos = () =>{
             redirect: 'follow'
           };
           
-          fetch(`http://localhost/prueba1/index.php/Api/PRODUCTOS/${id_producto}`, 
+          fetch(`http://localhost/prueba_1/index.php/Api/PRODUCTOS/${id_producto}`, 
         requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));
     }
+
+    useEffect(() => {
+      showData()
+    }, [])
+    
 
     const amarillo={
         background:'#ffde59'

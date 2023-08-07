@@ -2,11 +2,22 @@ import React, { useEffect, useState } from 'react'
 
 
 function Productos_geren() {
+
   const [data, setData] = useState([]);    
+
+  const showProd = () =>{
     fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
         .then(response => response.json())
         .then(result => setData(result))
         .catch(error => console.log('error', error));
+  }
+
+  useEffect(() => {
+    showProd();
+  }, [])
+  
+  
+    
         
     
     

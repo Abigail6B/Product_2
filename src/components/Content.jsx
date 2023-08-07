@@ -34,26 +34,33 @@ export const Content = () => {
                 redirect: 'follow'
                 };
 
-                fetch("http://localhost/prueba1/index.php/Api/EntradasyS/", requestOptions)
+                fetch("http://localhost/prueba_1/index.php/Api/EntradasyS/", requestOptions)
                 .then(response => response.text())
                 .then(result => console.log(result))
                 .catch(error => console.log('error', error));
     }
 
-//mostrar los registros de entradas y salidas
+        //mostrar los registros de entradas y salidas
         const [listaES, setListaES] = useState([])
-        fetch("http://localhost/prueba1/index.php/Api/EntradasyS")
-        .then(response => response.json())
-        .then(result => setListaES(result))
-        .catch(error => console.log('error', error));
+        const showEs = () =>{
+            fetch("http://localhost/prueba_1/index.php/Api/EntradasyS")
+                .then(response => response.json())
+                .then(result => setListaES(result))
+                .catch(error => console.log('error', error));
+        }
+        
 
 //mostrar los productos en el formulario
     useEffect(() => {
         handleShowP();
     }, []);
+
+    useEffect(() => {
+        showEs();
+    }, []);
     
     const handleShowP = () =>{
-        fetch("http://localhost/prueba1/index.php/Api/PRODUCTOS")
+        fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
             .then(response => response.json())
             .then(result =>setListaP(result))
             .catch(error => console.log('error', error));
@@ -65,7 +72,7 @@ export const Content = () => {
             redirect: 'follow'
           };
           
-          fetch(`http://localhost/prueba1/index.php/Api/EntradasyS/${id}`, requestOptions)
+          fetch(`http://localhost/prueba_1/index.php/Api/EntradasyS/${id}`, requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))
             .catch(error => console.log('error', error));

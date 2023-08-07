@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 export const Categorias_update = () => {
@@ -32,10 +32,19 @@ export const Categorias_update = () => {
     }
 
     let [data, setData] = useState([])
-    fetch(`http://localhost/prueba_1/index.php/Api/CATEGORIA/${params.id}`)
-    .then(response => response.json())
-    .then(result => setData(result))
-    .catch(error => console.log('error', error));
+
+    const showCategoria = () =>{
+      fetch(`http://localhost/prueba_1/index.php/Api/CATEGORIA/${params.id}`)
+      .then(response => response.json())
+      .then(result => setData(result))
+      .catch(error => console.log('error', error));
+    }
+
+    useEffect(() => {
+      showCategoria();
+    }, [])
+    
+    
 
     const amarillo={
         background:'#ffde59'
