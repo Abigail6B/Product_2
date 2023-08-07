@@ -1,7 +1,50 @@
-import React from 'react'
+import { CategoryScale, Chart } from 'chart.js/auto';
+import React, { useEffect, useState } from 'react'
+import { Bar } from 'react-chartjs-2'
+
 
 
 const Informes = () => {
+    
+    const [producto, setProducto] = useState([])
+    const [piezas, setPiezas] = useState([])
+    
+    const data ={
+        labels : producto,
+        datasets:[{
+            label: 'numero de piezas',
+            backgroundColor: 'rgba(0,255,0,0,1)',
+            boderColor: 'black',
+            borderWidth: 1,
+            hoverBackgroundColor: 'rgba(0,255,0,0.2)',
+            hoverBorderColor : '#FFFF00',
+            data: piezas
+        }]
+    };
+
+    const opciones ={
+        maintainAspectRatio: false,
+        responsive: true
+    }
+
+   
+        fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
+        .then(response => response.json())
+        .then(result =>{ var respuesta =result
+            console.log(respuesta);
+            var auxPiezas = [], auxProducto = [];
+            respuesta.map(elemento=>{
+                auxPiezas.push(elemento.n_piezas);
+                auxProducto.push(elemento.nombre_producto);
+            });
+            setPiezas(auxPiezas);
+            setProducto(auxProducto);
+            
+        })
+    
+  
+        
+
     const amarillo={
         background:'#ffde59'
       }
@@ -29,67 +72,18 @@ const Informes = () => {
                     <div className="container-fluid">
                         <div className="row mb-2">
                             <div className="col-sm-6">
-                                <h1>Categorias</h1>
+                                <h1>Número de piezas en los productos</h1>
                              </div>
                             <div className="col-sm-6">
                                 <ol className="breadcrumb float-sm-right">
                                     <li className="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li className="breadcrumb-item active">Categorias</li>
+                                    <li className="breadcrumb-item active">Informes</li>
                                 </ol>
                             </div>
                         </div>
                     </div>
                 </section>
                 <div className="container">
-                    <div className="row">
-                        <div className="col">
-                            <section className='content'>
-                                <div className="card ">
-                                    <div className="card-header" style={cafe}>
-                                        <h3 className="card-title" style={letras}><i className="fas fa-plus-square" style={letras}></i>Registro de Categorias</h3>
-            
-                                        <div className="card-tools">
-                                            <button type="button" className="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                                <i className="fas fa-minus" style={iconN}></i>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <div className="card-body" style={amarillo}>
-                                        <div className="form-group">
-                                            <label >Tipo</label>
-                                            <select  className="form-control" name="tipo" id="tipo">
-                                                <option value="">-Seleccione-</option>
-                                                <option value="Recamaras">Recamaras</option>
-                                                <option value="Oficina">Oficina</option>
-                                                <option value="Sala">Sala</option>
-                                            </select>
-                                        </div>
-                                        <div className="form-group">
-                                            <label >Tipo2</label>
-                                            <select  className="form-control" name="tipo2" id="tipo2">
-                                                <option value="">-Seleccione-</option>
-                                                <option value="Recamaras">Recamaras</option>
-                                                <option value="Oficina">Oficina</option>
-                                                <option value="Sala">Sala</option>
-                                            </select>
-                                        </div>
-                                        <div className="form-group">
-                                            <label >Tipo3</label>
-                                            <select  className="form-control" name="tipo3" id="tipo3">
-                                                <option value="">-Seleccione-</option>
-                                                <option value="Recamaras">Recamaras</option>
-                                                <option value="Oficina">Oficina</option>
-                                                <option value="Sala">Sala</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div className="card-footer">
-                                        <button className="btn submited float-right" style={cafe}><b style={letras}> Aceptar</b></button>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                        <div className="col">
                             <div className="card card-success">
                                 <div className="card-header" style={cafe}>
                                     <h3 className="card-title" style={letras}> <b>Estadisticas</b></h3>
@@ -98,18 +92,14 @@ const Informes = () => {
                                     </div>
                                 </div>
                                 <div className="card-body">
-                                    <div className="chart">
-                                        <canvas id="barChart" style={{minHeight: "250px", height: "250px", maxHeight: "250px", maxWidth: "100%"}}></canvas>
-                                    </div>
+                                    <Bar data={data} options={opciones}></Bar>
                                 </div>
 
                             </div>
-                        </div>
                     </div>
-                </div>
+            </div>
   
                 
-            </div>
 
                 
             
