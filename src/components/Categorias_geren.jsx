@@ -1,12 +1,22 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const Categorias_geren = () => {
 
     const [data, setData] = useState([])
+    
+    const showData = async () => {
         fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA")
-        .then(response => response.json())
-        .then(result => setData(result))
-        .catch(error => console.log('error', error));
+            .then(response => response.json())
+            .then(result => setData(result))
+            .catch(error => console.log('error', error));
+    }
+
+    useEffect(() => {
+      showData()
+    }, []);
+    
+    
+    
     
 
     const amarillo={
@@ -40,7 +50,7 @@ export const Categorias_geren = () => {
         <section className="content">
              <div className="card">
                 <div className="card-body card-info">
-                    <table className="table table-bordered table-hover table-striped" id="table">
+                    <table className="table table-bordered table-hover table-striped" id="example1">
                         <thead>
                             <tr className="text-center" style={cafe}>
                                 <th style={letras}>No.</th>
