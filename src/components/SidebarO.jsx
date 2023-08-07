@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom' //se importa esta libreria con la finali
                                         //y navegar entre vistas
 import user from '../assets/user.png'   // se importa la imagen que se utilizará para el ususario
 
-export const Sidebar = () => {
+export const SidebarO = () => {
   //se crean estilos para asignar color a las fuentes y el fondo del sidebar
   const rosa={
     background:'#ffde59'
@@ -15,7 +15,7 @@ export const Sidebar = () => {
     <>
         
   <aside className="main-sidebar sidebar-dark-primary" style={rosa}>
-    <Link to="/Home" className="brand-link">
+    <Link to="/HomeO" className="brand-link">
         <span style={letras} className="brand-text font-weight-light">Muebleria DAF</span>
     </Link>
 
@@ -42,7 +42,7 @@ export const Sidebar = () => {
       <nav className="mt-2" >
         <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li className="nav-item">
-            <Link to="/Productos" className="nav-link">
+            <Link to="/ProductosO" className="nav-link">
               <i style={letras} className="fas fa-list-alt"> </i>
               <p style={letras}>
                 Productos
@@ -50,34 +50,10 @@ export const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/Usuarios" className="nav-link">
-              <i style={letras} className="fas fa-users"></i>
-              <p style={letras}>
-                Usuarios
-              </p>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/entradas_salidas" className="nav-link">
-              <i style={letras} className="fas fa-sign-in-alt"></i>
-              <p style={letras}>
-                Entradas y Salidas
-              </p>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/Categorias" className="nav-link">
+            <Link to="/CategoriasO" className="nav-link">
               <i style={letras} className="fas fa-book-open"></i>
               <p style={letras}>
                 Categorias
-              </p>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/Informes" className="nav-link">
-              <i style={letras} className="fas fa-chart-bar"></i>
-              <p style={letras}>
-                Informes
               </p>
             </Link>
           </li>

@@ -1,3 +1,4 @@
+//IMPORTACIÓN DE LAS LLIBRERIAS NECESARIAS PARA EL USO DE METODOS DE REACT
 import React from 'react'
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
@@ -22,7 +23,7 @@ const Usuarios = () => {
         color:'#FFFF'
     }
 
-       
+   //las variables de estados que sirven para recuperar los valores y guardarlos.    
        const [clave_empleado, setClave_empleado] = useState('');
        const [nombre, setNombre] = useState('');
        const [apellido_p, setApellido_p] = useState('');
@@ -32,9 +33,9 @@ const Usuarios = () => {
        const [user, setUser] = useState('');
        const [password, setPassword] = useState('');
        const [fecha_alta, setFecha_alta] = useState('');
-       const [usu, setUsu] = useState([]);
        //console.log(usu);
 
+       //metodo para guardar usuarios
        const handleAdd = () =>{
         var formdata = new FormData();
         formdata.append("clave_empleado", clave_empleado);
@@ -56,19 +57,66 @@ const Usuarios = () => {
             body: formdata,
         };
 
-        fetch("http://localhost/prueba_1/index.php/Api/Usuarios/", requestOptions)
+        fetch("http://localhost/prueba1/index.php/Api/Usuarios/", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
        }
-       useEffect(() => {        
-          fetch("http://localhost/prueba_1/index.php/Api/Usuarios/")
+       
+//permite mostrar los usuarios registrados
+            const [usu, setUsu] = useState([])
+             fetch("http://localhost/prueba1/index.php/Api/Usuarios/")
             .then(response => response.json())
             .then(result => setUsu(result))
             .catch(error => console.log('error', error));
-            
-       }, []);
-      console.log(usu);
+            //console.log(usu);
+
+//metodo para eliminar un usuario
+       const handleDelete =(id)=>{
+        var requestOptions = {
+            method: 'DELETE',
+            redirect: 'follow'
+          };
+        fetch(`http://localhost/prueba1/index.php/Api/Usuarios/${id}`,requestOptions )
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+       }
+      //console.log(usu);
+      const [foto, setFoto] = useState(null);
+      const handleFoto=()=>{
+           // console.log(event.target.files[0]);
+           setFoto(event.target.files[0]);
+      }
+      const handleSend=()=>{
+        if(!foto){
+            alert("Carge archivo");
+        }
+        var formdata = new FormData();
+        formdata.append("clave_empleado", "190");
+        formdata.append("nombre", "Jovanny");
+        formdata.append("apellido_p", "Jimenez");
+        formdata.append("apellido_m", "Lopez");
+        formdata.append("puesto", "Gerente");
+        formdata.append("fotografia", foto);
+        formdata.append("user", "Jovas");
+        formdata.append("password", "12345");
+        formdata.append("fecha_alta", "2023-08-05");
+
+        var requestOptions = {
+            mode: 'no-cors',
+            header: {
+                'Content-type ' : "application/json, charset=utf-8"
+            },
+            method: 'POST',
+            body: formdata,
+        };
+
+        fetch("http://localhost/prueba1/index.php/Api/Usuarios/", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+      }
     return (
         <>
          <div className='content-wrapper'>
@@ -115,11 +163,17 @@ const Usuarios = () => {
                             <div className="col-4">
                                 <div className='form-group'>
                                     <label htmlFor="">Puesto</label>
-                                    <input  className="form-control" type="text" 
+                                    <select  className="form-control" type="text" 
                                     id='puesto' name='puesto' 
                                     placeholder='Escribe aqui'
                                     valor={puesto}
-                                    onChange={event => setPuesto( event.target.value)} />
+                                    onChange={event => setPuesto( event.target.value)} >
+                                        <option value="">Seleccione una opción</option>
+                                        <option value="Administrador">Administrador</option>
+                                        <option value="Operador">Operador de Almacén</option>
+                                        <option value="Jefe">Jefe de Almacén</option>
+                                        <option value="Gerente">Gerente</option>
+                                    </select>
                                 </div>
                             </div>
                             <div className="col-4">
@@ -183,8 +237,8 @@ const Usuarios = () => {
                             <div className="form-group">
                                 <label htmlFor="">Fotografía</label>
                                 <input type="file" className='form-control' id='foto' 
-                                name='foto' valor={fotografia}
-                                onChange={event => setFotografia( event.target.value)}/>
+                                name='foto' valor={fotografia} 
+                                onChange={()=> setFotografia( event.target.value)}/>
                             </div>
                         </div>
                     </div>
@@ -224,8 +278,8 @@ const Usuarios = () => {
                             <td>{u.fotografia}</td>
                             <td>{u.fecha_alta}</td>
                             <td>
-                                <i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i>
-                                <i className="fas fa-pen" style={icon}></i>
+                            <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(u.id_usuario)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
+                            <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(u.id_usuario)}><i className="fas fa-pen " alt="Actualizar" style={icon}></i></button>
                             </td>
                         </tr>
                     ))

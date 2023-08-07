@@ -65,7 +65,7 @@ const Productos = () =>{
             redirect: 'follow'
           };
           
-          fetch(`http://localhost/prueba_1/index.php/Api/PRODUCTOS/${id_producto}`, 
+          fetch(`http://localhost/prueba1/index.php/Api/PRODUCTOS/${id_producto}`, 
         requestOptions)
             .then(response => response.text())
             .then(result => console.log(result))

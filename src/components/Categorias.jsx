@@ -20,14 +20,14 @@ const Categorias = () => {
         redirect: 'follow'
       };
 
-      fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA/", requestOptions)
+      fetch("http://localhost/prueba1/index.php/Api/CATEGORIA/", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
     }
 
     const [data, setData] = useState([])
-        fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA")
+        fetch("http://localhost/prueba1/index.php/Api/CATEGORIA")
         .then(response => response.json())
         .then(result => setData(result))
         .catch(error => console.log('error', error));
@@ -38,7 +38,7 @@ const Categorias = () => {
         redirect: 'follow'
       };
             
-      fetch(`http://localhost/prueba_1/index.php/Api/CATEGORIA/${id_categoria}`, 
+      fetch(`http://localhost/prueba1/index.php/Api/CATEGORIA/${id_categoria}`, 
       requestOptions)
       .then(response => response.text())
       .then(result => console.log(result))

@@ -1,7 +1,9 @@
 import React from 'react'
 import DAF from '../assets/DAF.png'
+import { useState} from "react"
 
 const Home = () => {
+  //estilos para los fondos de color
   const amarillo={
     background:'#ffde59'
   }
@@ -17,6 +19,41 @@ const Home = () => {
     const letras={
       color:'#000'
     }
+
+    //variables de estado
+    const [per, setPer] = useState('');
+    const [password, setPassword] = useState('');
+    const [listaU, setListaU] = useState([]);
+
+   const handleFoto = async() =>{
+   }
+    fetch("http://localhost/prueba1/index.php/Api/Usuarios")
+    .then(response => response.json())
+    .then(result =>setListaU(result))
+    .catch(error => console.log('error', error));
+    //getData();
+    //console.log(listaU);
+    const handleLogin = () =>{
+      //console.log(listaU);
+        listaU.map((li)=>{
+          if (li.user==per && li.password==password) {
+            //console.log(li.user, li.password);
+            if(li.puesto=='Administrador'){
+              return window.location.href = "http://localhost:5173/home";
+            }
+            if(li.puesto=='Operador'){
+              return window.location.href = "http://localhost:5173/homeO";
+            }
+            if(li.puesto=='Jefe'){
+              return window.location.href = "http://localhost:5173/homeJ";
+            }
+            if(li.puesto=='Gerente'){
+              return window.location.href = "http://localhost:5173/homeG";
+            }
+          }
+        })
+    }
+
   return (
     <>
     <div className='p-5' style={cafe_f}></div>
@@ -29,9 +66,9 @@ const Home = () => {
     <div className="card-body login-card-body " style={amarillo}>
       <p className="login-box-msg" style={letras}><b> ¡Bienvenido inicia sesion! </b></p>
 
-      <form action="../../index3.html" method="post">
         <div className="input-group mb-3">
-          <input type="text" className="form-control" placeholder="Usuario" />
+          <input type="text" className="form-control" placeholder="Usuario" valor={per}
+          onChange={event => setPer( event.target.value)}/>
           <div className="input-group-append">
             <div className="input-group-text " style={blanco}>
               <span className="fas fa-user" style={blanco}></span>
@@ -39,7 +76,8 @@ const Home = () => {
           </div>
         </div>
         <div className="input-group mb-3">
-          <input type="password" className="form-control" placeholder="Contraseña" />
+          <input type="password" className="form-control" placeholder="Contraseña" 
+          valor={password} onChange={event => setPassword( event.target.value)}/>
           <div className="input-group-append">
             <div className="input-group-text" style={blanco}>
               <span className="fas fa-lock"></span>
@@ -48,10 +86,11 @@ const Home = () => {
         </div>
         <div className="row ">
           <div className="col-12">
-            <button type="submit" className="btn  btn-block" style={cafe}> <b style={letras}> Iniciar sesion </b></button>
+            <button  className="btn  btn-block" style={cafe}> <b style={letras}
+            onClick={()=> handleLogin()}
+           > Iniciar sesion </b></button>
           </div>
         </div>
-      </form>
 
 
     </div>
