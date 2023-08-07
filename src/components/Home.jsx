@@ -23,11 +23,9 @@ const Home = () => {
     //variables de estado
     const [per, setPer] = useState('');
     const [password, setPassword] = useState('');
-
     const [listaU, setListaU] = useState([]);
 
-   const getData = async() =>{
-    //console.log(per , password);
+   const handleFoto = async() =>{
    }
     fetch("http://localhost/prueba1/index.php/Api/Usuarios")
     .then(response => response.json())
@@ -52,10 +50,8 @@ const Home = () => {
             if(li.puesto=='Gerente'){
               return window.location.href = "http://localhost:5173/homeG";
             }
-            //console.log(li.nombre);
           }
         })
-      //{(listaU.user===user && listaU.password===password)?<Inicio_view/>:<Home_view/>}
     }
 
   return (

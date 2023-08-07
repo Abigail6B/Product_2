@@ -83,6 +83,40 @@ const Usuarios = () => {
         .catch(error => console.log('error', error));
        }
       //console.log(usu);
+      const [foto, setFoto] = useState(null);
+      const handleFoto=()=>{
+           // console.log(event.target.files[0]);
+           setFoto(event.target.files[0]);
+      }
+      const handleSend=()=>{
+        if(!foto){
+            alert("Carge archivo");
+        }
+        var formdata = new FormData();
+        formdata.append("clave_empleado", "190");
+        formdata.append("nombre", "Jovanny");
+        formdata.append("apellido_p", "Jimenez");
+        formdata.append("apellido_m", "Lopez");
+        formdata.append("puesto", "Gerente");
+        formdata.append("fotografia", foto);
+        formdata.append("user", "Jovas");
+        formdata.append("password", "12345");
+        formdata.append("fecha_alta", "2023-08-05");
+
+        var requestOptions = {
+            mode: 'no-cors',
+            header: {
+                'Content-type ' : "application/json, charset=utf-8"
+            },
+            method: 'POST',
+            body: formdata,
+        };
+
+        fetch("http://localhost/prueba1/index.php/Api/Usuarios/", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error));
+      }
     return (
         <>
          <div className='content-wrapper'>
@@ -203,8 +237,8 @@ const Usuarios = () => {
                             <div className="form-group">
                                 <label htmlFor="">Fotografía</label>
                                 <input type="file" className='form-control' id='foto' 
-                                name='foto' valor={fotografia}
-                                onChange={event => setFotografia( event.target.value)}/>
+                                name='foto' valor={fotografia} 
+                                onChange={()=> setFotografia( event.target.value)}/>
                             </div>
                         </div>
                     </div>

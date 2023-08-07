@@ -40,23 +40,25 @@ export const Content = () => {
                 .catch(error => console.log('error', error));
     }
 
-    useEffect(() => {
-        handleShowP();
-    }, []);
-
+//mostrar los registros de entradas y salidas
         const [listaES, setListaES] = useState([])
         fetch("http://localhost/prueba1/index.php/Api/EntradasyS")
         .then(response => response.json())
         .then(result => setListaES(result))
         .catch(error => console.log('error', error));
 
+//mostrar los productos en el formulario
+    useEffect(() => {
+        handleShowP();
+    }, []);
+    
     const handleShowP = () =>{
         fetch("http://localhost/prueba1/index.php/Api/PRODUCTOS")
             .then(response => response.json())
             .then(result =>setListaP(result))
             .catch(error => console.log('error', error));
     }
-    
+ //metodo para eliminar registros   
     const handleDeleteES = (id) =>{
         var requestOptions = {
             method: 'DELETE',
