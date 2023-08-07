@@ -1,19 +1,13 @@
 import React from 'react'
-import { Navbar } from './Navbar'
-import { Footer } from './Footer'
-import Home from './Home'
-import { Sidebar } from './Sidebar'
+import Home from './Home';
 
-export default function Home_view() {
-    return (
-        <>
-            <Navbar />
-            <Sidebar/>
-            <div className='col-12'>
-                <Home />
-            </div>
-            <Footer />
 
-        </>
-    )
+const Home_view = () => {
+  return (
+    <>
+        <Home />
+    </>
+  )
 }
+
+export default Home_view;

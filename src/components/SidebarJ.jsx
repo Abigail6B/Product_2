@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom' //se importa esta libreria con la finali
                                         //y navegar entre vistas
 import user from '../assets/user.png'   // se importa la imagen que se utilizará para el ususario
 
-export const Sidebar = () => {
+export const SidebarJ = () => {
   //se crean estilos para asignar color a las fuentes y el fondo del sidebar
   const rosa={
     background:'#ffde59'
@@ -42,7 +42,7 @@ export const Sidebar = () => {
       <nav className="mt-2" >
         <ul className="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <li className="nav-item">
-            <Link to="/Productos" className="nav-link">
+            <Link to="/ProductosJ" className="nav-link">
               <i style={letras} className="fas fa-list-alt"> </i>
               <p style={letras}>
                 Productos
@@ -50,15 +50,7 @@ export const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/Usuarios" className="nav-link">
-              <i style={letras} className="fas fa-users"></i>
-              <p style={letras}>
-                Usuarios
-              </p>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/entradas_salidas" className="nav-link">
+            <Link to="/entradas_salidasJ" className="nav-link">
               <i style={letras} className="fas fa-sign-in-alt"></i>
               <p style={letras}>
                 Entradas y Salidas
@@ -66,18 +58,10 @@ export const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/Categorias" className="nav-link">
+            <Link to="/CategoriasJ" className="nav-link">
               <i style={letras} className="fas fa-book-open"></i>
               <p style={letras}>
                 Categorias
-              </p>
-            </Link>
-          </li>
-          <li className="nav-item">
-            <Link to="/Informes" className="nav-link">
-              <i style={letras} className="fas fa-chart-bar"></i>
-              <p style={letras}>
-                Informes
               </p>
             </Link>
           </li>

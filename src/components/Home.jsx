@@ -1,49 +1,103 @@
 import React from 'react'
-import mueble1 from '../assets/mueble1.jpg'
-import mueble2 from '../assets/mueble2.jpg'
-import mueble3 from '../assets/mueble3.jpg'
-import '../css/Home.css'
+import DAF from '../assets/DAF.png'
+import { useState} from "react"
 
-function Home() {
-    return (
-        <>
-            <div className='col-lg-12 container justify-content-center text-center'>
-                <br />
-                <h2>DAF MUEBLERIA</h2>
-                <br />
+const Home = () => {
+  //estilos para los fondos de color
+  const amarillo={
+    background:'#ffde59'
+  }
+  const cafe={
+      background:'#8e582c'
+  }
+    const cafe_f={
+        background:'#8e582c'
+    }
+    const blanco={
+        background:'#FFFF'
+    }
+    const letras={
+      color:'#000'
+    }
+
+    //variables de estado
+    const [per, setPer] = useState('');
+    const [password, setPassword] = useState('');
+    const [listaU, setListaU] = useState([]);
+
+   const handleFoto = async() =>{
+   }
+    fetch("http://localhost/prueba_1/index.php/Api/Usuarios")
+    .then(response => response.json())
+    .then(result =>setListaU(result))
+    .catch(error => console.log('error', error));
+    //getData();
+    //console.log(listaU);
+    const handleLogin = () =>{
+      //console.log(listaU);
+        listaU.map((li)=>{
+          if (li.user==per && li.password==password) {
+            //console.log(li.user, li.password);
+            if(li.puesto=='Administrador'){
+              return window.location.href = "http://localhost:5173/home";
+            }
+            if(li.puesto=='Operador'){
+              return window.location.href = "http://localhost:5173/homeO";
+            }
+            if(li.puesto=='Jefe'){
+              return window.location.href = "http://localhost:5173/homeJ";
+            }
+            if(li.puesto=='Gerente'){
+              return window.location.href = "http://localhost:5173/homeG";
+            }
+          }
+        })
+    }
+
+  return (
+    <>
+    <div className='p-5' style={cafe_f}></div>
+<div className="mx-auto" style={{width:" 600px", 
+  padding: "-20%", margin: "3%"}}>
+  <div className="login-logo">
+    <img src={DAF} width="180" height="180" />
+  </div>
+  <div className="card" >
+    <div className="card-body login-card-body " style={amarillo}>
+      <p className="login-box-msg" style={letras}><b> ¡Bienvenido inicia sesion! </b></p>
+
+        <div className="input-group mb-3">
+          <input type="text" className="form-control" placeholder="Usuario" valor={per}
+          onChange={event => setPer( event.target.value)}/>
+          <div className="input-group-append">
+            <div className="input-group-text " style={blanco}>
+              <span className="fas fa-user" style={blanco}></span>
             </div>
-            <div className="m-0 row justify-content-center text-ceter col-lg-12">
-                <div id="carouselExample" className="col-lg-8 carousel slide">
-                    <div id="carouselExampleIndicators" className="carousel slide">
-                        <div className="carousel-indicators">
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" className="active color-black" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
-                        </div>
-                        <div className="carousel-inner">
-                            <div className="carousel-item active">
-                                <img src={mueble1} className="d-block w-100" alt="mueble" />
-                            </div>
-                            <div className="carousel-item">
-                                <img src={mueble2} className="d-block w-100" alt="mueble" />
-                            </div>
-                            <div className="carousel-item">
-                                <img src={mueble3} className="d-block w-100" alt="mueble" />
-                            </div>
-                        </div>
-                        <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
-                            <span className="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span className="visually-hidden">Anterior</span>
-                        </button>
-                        <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
-                            <span className="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span className="visually-hidden">Siguiente</span>
-                        </button>
-                    </div>
-                </div>
+          </div>
+        </div>
+        <div className="input-group mb-3">
+          <input type="password" className="form-control" placeholder="Contraseña" 
+          valor={password} onChange={event => setPassword( event.target.value)}/>
+          <div className="input-group-append">
+            <div className="input-group-text" style={blanco}>
+              <span className="fas fa-lock"></span>
             </div>
-        </>
-    )
+          </div>
+        </div>
+        <div className="row ">
+          <div className="col-12">
+            <button  className="btn  btn-block" style={cafe}> <b style={letras}
+            onClick={()=> handleLogin()}
+           > Iniciar sesion </b></button>
+          </div>
+        </div>
+
+
+    </div>
+  </div>
+</div>
+    </>
+  )
 }
 
 export default Home

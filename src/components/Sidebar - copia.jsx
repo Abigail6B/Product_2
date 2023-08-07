@@ -50,6 +50,14 @@ export const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
+            <Link to="/Productos_gerencia" className="nav-link">
+              <i style={letras} className="fas fa-list-alt"> </i>
+              <p style={letras}>
+                Productos Gerente
+              </p>
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link to="/Usuarios" className="nav-link">
               <i style={letras} className="fas fa-users"></i>
               <p style={letras}>
@@ -66,10 +74,26 @@ export const Sidebar = () => {
             </Link>
           </li>
           <li className="nav-item">
+            <Link to="/entradas_salidas_gerencia" className="nav-link">
+              <i style={letras} className="fas fa-sign-in-alt"></i>
+              <p style={letras}>
+                Entradas y Salidas Generente
+              </p>
+            </Link>
+          </li>
+          <li className="nav-item">
             <Link to="/Categorias" className="nav-link">
               <i style={letras} className="fas fa-book-open"></i>
               <p style={letras}>
                 Categorias
+              </p>
+            </Link>
+          </li>
+          <li className="nav-item">
+            <Link to="/categoria_gerencia" className="nav-link">
+              <i style={letras} className="fas fa-book-open"></i>
+              <p style={letras}>
+                Categorias Gerente
               </p>
             </Link>
           </li>

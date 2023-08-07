@@ -1,41 +1,41 @@
 import React from 'react'
-import DAF from '../assets/logo.png'
+import { Link } from "react-router-dom"
+import DAF from '../assets/DAF.png' //se importa el logo de la empresa
 
-export const Navbar = () => {
-  const azulF = {
-    background: '#006D77'
+export const Navbar =() => {
+  //se agregan estilos para cambiar el color del header
+  const azulF={
+    background:'#8e582c'
   }
-  const icon = {
-    color: "#ffffff",
+  const blanco={
+    background:'#FFFF'
   }
   return (
     <>
-
-      <nav className="navbar navbar-expand navbar-info navbar-light" style={azulF}>
+         
+    <nav className="main-header navbar navbar-expand navbar-info navbar-light" style={azulF}>
 
         <ul className="navbar-nav">
-          <li className="nav-item">
-            <a href="/">
-              <img src={DAF} width="60" height="60" />
-            </a>
-          </li>
+              <li className="nav-item">
+                  <img src={DAF} width="60" height="60" />
+              </li>
         </ul>
-
         <ul className="navbar-nav">
           <li className="nav-item">
-            <a className="nav-link" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars fa-lg" style={icon}></i></a>
+              <a className="nav-link text-white" data-widget="pushmenu" href="#" role="button"><i className="fas fa-bars"></i></a>
           </li>
         </ul>
 
         <ul className="navbar-nav ml-auto">
-
-          <li className="nav-item">
-            <a className="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-              <i className="fas fa-sign-out-alt fa-lg" style={icon}></i>
-            </a>
-          </li>
+        <li className="nav-item">
+            <Link to="/" className="brand-link">
+            
+            <i className="fas fa-sign-out-alt"></i>
+            </Link>
+            
+        </li>
         </ul>
-      </nav>
+    </nav>
     </>
   )
 }

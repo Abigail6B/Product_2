@@ -1,11 +1,32 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 export const Categorias_geren = () => {
-    const  rosa={
-        background:'#FFDDD2',
+
+    const [data, setData] = useState([])
+    
+    const showData =  () => {
+        fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA")
+            .then(response => response.json())
+            .then(result => setData(result))
+            .catch(error => console.log('error', error));
     }
-    const azul={
-        background:'#83C5BE'
+
+    useEffect(() => {
+      showData()
+    }, []);
+    
+    
+    
+    
+
+    const amarillo={
+        background:'#ffde59'
+      }
+    const cafe={
+        background:'#8e582c'
+    }
+    const letras={
+        color:'#FFFF'
     }
   return (
     <>
@@ -29,22 +50,25 @@ export const Categorias_geren = () => {
         <section className="content">
              <div className="card">
                 <div className="card-body card-info">
-                    <table className="table table-bordered table-hover table-striped" id="table">
+                    <table className="table table-bordered table-hover table-striped" id="example1">
                         <thead>
-                            <tr className="text-center" style={azul}>
-                                <th>No.</th>
-                                <th>Codigo</th>
-                                <th>Tipo</th>
-                                <th>Fecha</th>
+                            <tr className="text-center" style={cafe}>
+                                <th style={letras}>No.</th>
+                                <th style={letras}>Codigo</th>
+                                <th style={letras}>Tipo</th>
+                                <th style={letras}>Fecha</th>
                             </tr>
                         </thead>
                         <tbody className="text-center">
-                            <tr style={rosa}>
-                                <td>1</td>
-                                <td>SN_7821</td>
-                                <td>Sillones</td>
-                                <td>16/06/2023</td>
-                            </tr>
+                        {data.map((cate)=>(
+                            <tr key={cate.id_categoria} style={amarillo} >
+                            <td>{cate.id_categoria}</td>
+                            <td>{cate.codigo}</td>
+                            <td>{cate.tipo}</td>
+                            <td>{cate.fecha_alta}</td>
+                        </tr>
+                            
+                        ))}
                         
                         </tbody>
                     </table>
