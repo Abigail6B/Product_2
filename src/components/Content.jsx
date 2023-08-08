@@ -1,5 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from "react"
+import { Link } from 'react-router-dom'
 
 export const Content = () => {
     //estilos parra los fondos de diferntes colores
@@ -176,7 +177,8 @@ export const Content = () => {
                                     <td>
                                          <button className='btn col-lg-4 offset-md-1'><i className="fas fa-trash-alt " alt="bote de basura" style={icon}
                                          onClick={()=>handleDeleteES(es.id_registro)}></i></button>
-                                         <i className="fas fa-pen" style={icon}></i>
+                                         
+                                         <button className='btn col-lg-4 offset-md-1 '> <Link to={`/entsal_actualizar/${es.id_registro}`} className=""><i className="fas fa-pen" style={icon}></i></Link></button>
                                     </td>
                                 </tr>
                             ))

@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom';
 
 export const Usuarios_update = () => {
@@ -44,11 +44,20 @@ export const Usuarios_update = () => {
         }
 
         let [data, setData] = useState([])
-        fetch(`http://localhost/prueba_1/index.php/Api/Usuarios/${params.id}`)
-        .then(response => response.json())
-        .then(result => setData(result))
-        .catch(error => console.log('error', error));
 
+        const showUser = () =>{
+            fetch(`http://localhost/prueba_1/index.php/Api/Usuarios/${params.id}`)
+            .then(response => response.json())
+            .then(result => setData(result))
+            .catch(error => console.log('error', error));
+
+        }
+
+        useEffect(() => {
+          showUser();
+        }, [])
+        
+        
        const rosa={
         background:'#ffde59'
       }
@@ -258,7 +267,7 @@ export const Usuarios_update = () => {
                 </div>
                 <div className="card-footer">
                     <Link to='/Usuarios' className="btn btn-secondary">
-                    Cancelar
+                    Regresar
                     </Link>
                     <button className="btn submited float-right" style={cafe}><b style={letras} onClick={()=>handleUp()}> Aceptar </b></button>
                 </div>

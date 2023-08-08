@@ -287,7 +287,7 @@ const Usuarios = () => {
                             <td>{u.fecha_alta}</td>
                             <td>
                             <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(u.id_usuario)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
-                            <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(u.id_usuario)}><i className="fas fa-pen " alt="Actualizar" style={icon}></i></button>
+                            <button className='btn col-lg-4 offset-md-1 '> <Link to={`/usuario_actualizar/${u.id_usuario}`} className=""><i className="fas fa-pen" style={icon}></i></Link></button>
                             </td>
                         </tr>
                     ))

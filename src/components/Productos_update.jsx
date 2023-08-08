@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 export const Productos_update = () => {
@@ -55,10 +55,19 @@ export const Productos_update = () => {
     }
 
     let [data, setData] = useState([])
-    fetch(`http://localhost/prueba_1/index.php/Api/PRODUCTOS/${params.id}`)
-    .then(response => response.json())
-    .then(result => setData(result))
-    .catch(error => console.log('error', error));
+
+    const showProduct = () =>{
+        fetch(`http://localhost/prueba_1/index.php/Api/PRODUCTOS/${params.id}`)
+        .then(response => response.json())
+        .then(result => setData(result))
+        .catch(error => console.log('error', error));
+    }
+
+    useEffect(() => {
+      showProduct();
+    }, [])
+    
+    
 
     const amarillo={
         background:'#ffde59'
@@ -94,7 +103,7 @@ export const Productos_update = () => {
                 </div>
   </section>
 <section className="content">
-    <p className=" rounded pl-1 pr-1"><strong>Instrucciones:</strong> Lee cuidadosamente cada uno de los datos que se te piden. <strong >(1) En la parte izquierda podras observar lo que contiene la categoria seleccionada </strong>, <strong >(2) y en la parte derecha deberas de llenar cada uno de los recuadros los datos que vas a actualizar</strong>, <strong >(3) si solamente vas a actualizar un solo dato, por favor repite la informacion en los recuadros de la derecha</strong>.</p>
+    <p className=" rounded pl-1 pr-1"><strong>Instrucciones:</strong> Lee cuidadosamente cada uno de los datos que se te piden. <strong >(1) En la parte izquierda podras observar lo que contiene el producto seleccionado</strong>, <strong >(2) y en la parte derecha deberas de llenar cada uno de los recuadros los datos que vas a actualizar</strong>, <strong >(3) si solamente vas a actualizar un solo dato, por favor repite la informacion en los recuadros de la derecha</strong>.</p>
         <div className="card ">
             <div className="card-header" style={cafe}>
                 <h3 className="card-title" style={letras}><i className="fas fa-plus-square" style={letras}></i>Registro de Productos</h3>
@@ -305,7 +314,7 @@ export const Productos_update = () => {
                 </div>
                 <div className="card-footer">
                     <Link to='/Productos' className="btn btn-secondary">
-                        Cancelar
+                        Regresar
                     </Link>
                     <button className="btn submited float-right" style={cafe}><b style={letras} onClick={()=>handleUp()}> Aceptar </b></button>
                 </div>

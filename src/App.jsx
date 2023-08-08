@@ -6,6 +6,11 @@ import Productos_view from './components/Productos_view';
 import Usuarios_view from './components/Usuarios_view';
 import Informes from './components/Informes_view';
 import { SalidasEnt } from './components/SalidasEnt'
+import { Productos_update_view } from './components/Productos_update_view';
+import { Usuarios_update_view } from './components/Usuarios_update_view';
+import Categorias_update_view from './components/Categorias_update_view';
+import { Entradas_Salidas_update_view } from './components/Entradas_Salidas_update_view';
+
 //home e inicio
 import Home_view from './components/Home_view';
 import Inicio_view from './components/Inicio_view';
@@ -38,6 +43,10 @@ function App() {
         <Route path='/Productos' element={<Productos_view/>}/>
         <Route path='/Informes' element={<Informes />} />
         <Route exact path='/Categorias' element={<Categorias_view/>}/>
+        <Route path={`/producto_actualizar/:id`} element={ <Productos_update_view/>}  />
+        <Route path={`/usuario_actualizar/:id`} element={ <Usuarios_update_view /> }  />
+        <Route path={`/categoria_actualizar/:id`} element={ <Categorias_update_view /> }  />
+        <Route path={`/entsal_actualizar/:id`} element={ <Entradas_Salidas_update_view /> }  />
 
         <Route path='/HomeG' element={ <InicioG_view /> }  />
         <Route path='/categoria_gerencia' element={ <Catge_ /> }  />

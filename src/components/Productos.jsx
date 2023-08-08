@@ -277,7 +277,7 @@ const Productos = () =>{
                     <td >
                         <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(productos.id_producto)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
                         
-                        <button className='btn col-lg-4 offset-md-1 '><i className="fas fa-pen" style={icon}></i></button>
+                        <button className='btn col-lg-4 offset-md-1 '> <Link to={`/producto_actualizar/${productos.id_producto}`} className=""><i className="fas fa-pen" style={icon}></i></Link></button>
                         
                      
                     </td>
