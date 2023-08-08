@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useEffect } from 'react';
+import DataTable from 'react-data-table-component';
 import { Link } from 'react-router-dom'
 
 const Productos = () =>{
@@ -80,6 +81,68 @@ const Productos = () =>{
       showData()
     }, [])
     
+   const columns = [
+    {
+        name: 'id_producto',
+        selector: row => row.id_producto
+    },
+    {
+        name: 'cod_producto',
+        selector: row => row.cod_producto
+    },
+    {
+        name: 'marca',
+        selector: row => row.marca
+    },
+    {
+        name: 'nombre_producto',
+        selector: row => row.nombre_producto
+    },
+    {
+        name: 'n_piezas',
+        selector: row => row.n_piezas
+    },
+    {
+        name: 'color',
+        selector: row => row.color
+    },
+    {
+        name: 'material',
+        selector: row => row.material
+    },
+    {
+        name: 'unidades',
+        selector: row => row.unidades
+    },
+    {
+        name: 'dim_alto',
+        selector: row => row.dim_alto
+    },
+    {
+        name: 'dim_ancho',
+        selector: row => row.dim_ancho
+    },
+    {
+        name: 'dim_largo',
+        selector: row => row.dim_largo
+    },
+    {
+        name: 'precio',
+        selector: row => row.precio
+    },
+    {
+        name: 'descripcion',
+        selector: row => row.descripcion
+    },
+    {
+        name: 'fecha_alta',
+        selector: row => row.fecha_alta
+    },
+    {
+        name: 'fotografia',
+        selector: row => row.fotografia
+    },
+   ]
 
     const amarillo={
         background:'#ffde59'
@@ -232,59 +295,59 @@ const Productos = () =>{
                 </div>
             </div>
  <div>
-  <table className="table table-bordered table-striped table-hover" id='table_Prod'>
-            <thead style={cafe}>
-            <tr>
-                    <th style={letras}>No.</th>
-                    <th style={letras}>Código poroducto</th>
-                    <th style={letras}>Código categoria</th>
-                    <th style={letras}>Marca</th>
-                    <th style={letras}>Nombre del producto</th>
-                    <th style={letras}>No.Pza</th>
-                    <th style={letras}>Color</th>
-                    <th style={letras}>Material</th>
-                    <th style={letras}>Unidades</th>
-                    <th style={letras}>Alto</th>
-                    <th style={letras}>Ancho</th>
-                    <th style={letras}>Largo</th>
-                    <th style={letras}>Precio</th>
-                    <th style={letras}>Descripcion</th>
-                    <th style={letras}>Fecha</th>
-                    <th style={letras}>Fotografía</th>
-                    <th style={letras}>Opciones</th>
+        <table className="table table-bordered table-striped table-hover" id='table_Prod'>
+                    <thead style={cafe}>
+                    <tr>
+                            <th style={letras}>No.</th>
+                            <th style={letras}>Código poroducto</th>
+                            <th style={letras}>Código categoria</th>
+                            <th style={letras}>Marca</th>
+                            <th style={letras}>Nombre del producto</th>
+                            <th style={letras}>No.Pza</th>
+                            <th style={letras}>Color</th>
+                            <th style={letras}>Material</th>
+                            <th style={letras}>Unidades</th>
+                            <th style={letras}>Alto</th>
+                            <th style={letras}>Ancho</th>
+                            <th style={letras}>Largo</th>
+                            <th style={letras}>Precio</th>
+                            <th style={letras}>Descripcion</th>
+                            <th style={letras}>Fecha</th>
+                            <th style={letras}>Fotografía</th>
+                            <th style={letras}>Opciones</th>
 
-                  </tr>
-                </thead>
-                <tbody style={amarillo}>
-                {data.map((productos) => (
-                  <tr key={productos.id_producto}>
-                    <td>{productos.id_producto}</td>
-                    <td>{productos.cod_producto}</td>
-                    <td>{productos.id_categoria}</td>
-                    <td>{productos.marca}</td>
-                    <td>{productos.nombre_producto}</td>
-                    <td>{productos.n_piezas}</td>
-                    <td>{productos.color}</td>
-                    <td>{productos.material}</td>
-                    <td>{productos.unidades}</td>
-                    <td>{productos.dim_alto}</td>
-                    <td>{productos.dim_ancho}</td>
-                    <td>{productos.dim_largo}</td>
-                    <td>{productos.precio}</td>
-                    <td>{productos.descripcion}</td>
-                    <td>{productos.fecha_alta}</td>
-                    <td>{productos.fotografia}</td>
-                    <td >
-                        <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(productos.id_producto)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
-                        
-                        <button className='btn col-lg-4 offset-md-1 '> <Link to={`/producto_actualizar/${productos.id_producto}`} className=""><i className="fas fa-pen" style={icon}></i></Link></button>
-                        
-                     
-                    </td>
-                </tr>
-                ))}
+                        </tr>
+                        </thead>
+                        <tbody style={amarillo}>
+                        {data.map((productos) => (
+                        <tr key={productos.id_producto}>
+                            <td>{productos.id_producto}</td>
+                            <td>{productos.cod_producto}</td>
+                            <td>{productos.id_categoria}</td>
+                            <td>{productos.marca}</td>
+                            <td>{productos.nombre_producto}</td>
+                            <td>{productos.n_piezas}</td>
+                            <td>{productos.color}</td>
+                            <td>{productos.material}</td>
+                            <td>{productos.unidades}</td>
+                            <td>{productos.dim_alto}</td>
+                            <td>{productos.dim_ancho}</td>
+                            <td>{productos.dim_largo}</td>
+                            <td>{productos.precio}</td>
+                            <td>{productos.descripcion}</td>
+                            <td>{productos.fecha_alta}</td>
+                            <td>{productos.fotografia}</td>
+                            <td >
+                                <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(productos.id_producto)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
+                                
+                                <button className='btn col-lg-4 offset-md-1 '> <Link to={`/producto_actualizar/${productos.id_producto}`} className=""><i className="fas fa-pen" style={icon}></i></Link></button>
+                                
+                            
+                            </td>
+                        </tr>
+                        ))}
 
-                </tbody>
+                        </tbody>
         </table>
     </div>
     </section>
