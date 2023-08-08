@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router-dom'
 
 export const Productos_update = () => {
+
+    //Declaracion de variables de estado para cada uno de los campos de la tabla de  Productos  en base de datos
     const [cod_producto, setCod_producto] = useState('');
     const [id_categoria, setId_categoria] = useState(0);
     const [marca, setMarca] = useState('');
@@ -17,9 +19,13 @@ export const Productos_update = () => {
     const [descripcion, setDescripcion] = useState('');
     const [fecha_alta, setFecha_alta] = useState('2023-08-03 10:00:00');
     const [fotografia, setFotografia] = useState('');
-
+    
+    //Utilizamos params ya que nos permite acceder desde un componente a los parámetros de la ruta
     const params = useParams();
+
+    //Metodo para actualizar un productos
     const handleUp = () =>{
+      //Formato de importacion JavaScript-Fetch que nos arroja postman y se asignan las variables de estado
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -54,8 +60,10 @@ export const Productos_update = () => {
         .catch(error => console.log('error', error));
     }
 
+    //Declaracion de variable de estado para mostrar los productos que se encuentran en la base de datos
     let [data, setData] = useState([])
-
+    //Metodo ShowProduct nos ayuda a traer todas los productos registrados en la base de datos (GET)
+    //Api GET
     const showProduct = () =>{
         fetch(`http://localhost/prueba_1/index.php/Api/PRODUCTOS/${params.id}`)
         .then(response => response.json())
@@ -63,12 +71,14 @@ export const Productos_update = () => {
         .catch(error => console.log('error', error));
     }
 
+    //UseEffect para que nos muestre los Productos
     useEffect(() => {
       showProduct();
     }, [])
     
     
 
+    /* estilos para el frontend */
     const amarillo={
         background:'#ffde59'
       }
@@ -102,6 +112,7 @@ export const Productos_update = () => {
                  </div>
                 </div>
   </section>
+  {/* Creacion de formulario para actualizar un producto  */}
 <section className="content">
     <p className=" rounded pl-1 pr-1"><strong>Instrucciones:</strong> Lee cuidadosamente cada uno de los datos que se te piden. <strong >(1) En la parte izquierda podras observar lo que contiene el producto seleccionado</strong>, <strong >(2) y en la parte derecha deberas de llenar cada uno de los recuadros los datos que vas a actualizar</strong>, <strong >(3) si solamente vas a actualizar un solo dato, por favor repite la informacion en los recuadros de la derecha</strong>.</p>
         <div className="card ">
@@ -113,6 +124,7 @@ export const Productos_update = () => {
                     </button>
                 </div>
             </div>
+            {/* Se llama OnChange para que se tomen los valores que se estan obteniendo de los input y se utiliza los set, ademas se coloca del lado dreceho los datos que se encuentran actualemnte en base de datos */}
                 <div className="card-body" style={amarillo}>
                     <div className="row">
                             <div className="col">
@@ -312,10 +324,12 @@ export const Productos_update = () => {
                         </div>
                     </div>
                 </div>
+                {/* Regresa a productos */}
                 <div className="card-footer">
                     <Link to='/Productos' className="btn btn-secondary">
                         Regresar
                     </Link>
+                    {/* llamada del metodo handleUp con el evento onClick esto para mandar a base de datos la actualizacion de un producto*/}
                     <button className="btn submited float-right" style={cafe}><b style={letras} onClick={()=>handleUp()}> Aceptar </b></button>
                 </div>
             </div>

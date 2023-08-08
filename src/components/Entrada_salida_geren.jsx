@@ -13,7 +13,10 @@ export const Entrada_salida_geren = () => {
         color:'#FFFF'
     }
 
+    //Declaracion de variable de estado para cada uno de los campos de la tabla de Entradas y salidas en base de datos
     const [listaES, setListaES] = useState([]);
+
+    //UseEffect que ayuda  a mostrar las Entradas y salidas
     useEffect(() => {
         fetch("http://localhost/prueba_1/index.php/Api/EntradasyS")
         .then(response => response.json())
@@ -23,6 +26,7 @@ export const Entrada_salida_geren = () => {
     
   return (
     <>
+    
         <div className="content-wrapper">
         <section className="content-header">
             <div className="container-fluid">
@@ -39,7 +43,7 @@ export const Entrada_salida_geren = () => {
                 </div>
             </div>
         </section>
-
+        {/* incio de la creacion de tabla  */}
         <section className="content">
             <div className="card">
                 <div className="card-body card-info">
@@ -52,6 +56,7 @@ export const Entrada_salida_geren = () => {
                                 <th style={letras}>Fecha</th>
                             </tr>
                         </thead>
+                        {/* uso del state “listaEs” que es el que contiene todos los registros, ya que es un arreglo, se utiliza el método “map” para poder acceder a cada registro y poder imprimir en pantalla los datos.  */}
                         <tbody className="text-center">
                             {
                                 listaES.map((es) =>(

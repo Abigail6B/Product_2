@@ -35,9 +35,11 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
+        {/* rutas principales */}
         <Route exact path='/' element={<Home_view/>}/>
         <Route path='/Home' element={<Inicio_view/>} />
 
+        {/* rutas de administrador */}
         <Route path='/Usuarios' element={<Usuarios_view/>}/>
         <Route path='/entradas_salidas' element={ <SalidasEnt /> }  />
         <Route path='/Productos' element={<Productos_view/>}/>
@@ -48,15 +50,18 @@ function App() {
         <Route path={`/categoria_actualizar/:id`} element={ <Categorias_update_view /> }  />
         <Route path={`/entsal_actualizar/:id`} element={ <Entradas_Salidas_update_view /> }  />
 
+        {/* rutas de gerente */}
         <Route path='/HomeG' element={ <InicioG_view /> }  />
         <Route path='/categoria_gerencia' element={ <Catge_ /> }  />
         <Route path='/entradas_salidas_gerencia' element={ <Esgeren /> }  />
         <Route path='/Productos_Gerencia' element={<Prodge_view/>}/>
         
+        {/* rutas de operador */}
         <Route path='/HomeO' element={<InicioO_view/>} />
         <Route path='/ProductosO' element={<ProductosO_view/>} />
         <Route path='/CategoriasO' element={<CategoriasO_view/>} />
 
+{       /* rutas del jede */}
         <Route path='/HomeJ' element={<InicioJ_view/>} />
         <Route path='/ProductosJ' element={<ProductosJ_view/>} />
         <Route path='/CategoriasJ' element={<CategoriasJ_view/>} />

@@ -19,13 +19,18 @@ export const Entradas_Salidas_update = () => {
         color:'#FFFF'
     }
 
+    //Declaracion de variables de estado para cada uno de los campos de la tabla de entradas y salida en base de datos
     const [id_producto, setId_producto] = useState('');
     const [tipo, setTipo] = useState('');
     const [fecha, setFecha] = useState('');
     const [listaP, setListaP] = useState([]);
 
+     //Utilizamos params ya que nos permite acceder desde un componente a los parámetros de la ruta
     const params = useParams();
+
+    //Metodo para actualizar una entrada o salida
     const handleUp = () =>{
+        //Formato de importacion JavaScript-Fetch que nos arroja postman y se asignan las variables de estado
         var myHeaders = new Headers();
         myHeaders.append("Content-Type", "application/json");
 
@@ -57,10 +62,12 @@ export const Entradas_Salidas_update = () => {
                 .catch(error => console.log('error', error));
         }
         
+        //UseEffect para que nos muestre las entradas y salidas
         useEffect(() => {
             showEs();
         }, []);
 
+        // metodo para traer todos los prodctos de la base d edatos
         const handleShowP = () =>{
             fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
                 .then(response => response.json())
@@ -68,6 +75,7 @@ export const Entradas_Salidas_update = () => {
                 .catch(error => console.log('error', error));
         }
 
+        //UseEffect para que nos muestre los Productos
         useEffect(() => {
             handleShowP();
         }, []);
@@ -89,7 +97,7 @@ export const Entradas_Salidas_update = () => {
             </div>
         </div>
         </section>
-
+         {/* Creacion de formulario para actualizar una entrada y salida  */}
         <section className="content">
         <p className=" rounded pl-1 pr-1"><strong>Instrucciones:</strong> Lee cuidadosamente cada uno de los datos que se te piden. <strong >(1) En la parte izquierda podras observar lo que contiene la entrada y salida que seleccionaste </strong>, <strong >(2) y en la parte derecha deberas de llenar cada uno de los recuadros los datos que vas a actualizar</strong>, <strong >(3) si solamente vas a actualizar un solo dato, por favor repite la informacion en los recuadros de la derecha</strong>.</p>
         <div className="card" >
@@ -105,6 +113,7 @@ export const Entradas_Salidas_update = () => {
                 </button>
             </div>
             </div>
+            {/* Se llama OnChange para que se tomen los valores que se estan obteniendo de los input y se utiliza los set, ademas se coloca del lado dreceho los datos que se encuentran actualemnte en base de datos */}
             <div className="card-body " style={amarillo}>
                 <div className="row">
                     <div className='col'> 
@@ -169,9 +178,11 @@ export const Entradas_Salidas_update = () => {
                 </div>
             </div>
             <div className="card-footer">
+                {/* Regresa a entradas y salidas */}
                 <Link to='/entradas_salidas' className="btn btn-secondary">
                 Regresar
                 </Link>
+                {/* llamada del metodo handleUp con el evento onClick esto para mandar a base de datos la actualizacion de una entrada o salida*/}
                 <button className="btn submited float-right" style={cafe}><b style={letras} onClick={()=>handleUp()}> Aceptar </b></button>
             </div>
         </div>

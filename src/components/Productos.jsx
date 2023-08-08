@@ -1,10 +1,11 @@
+/* Importacion de librerias o elementos de react */
 import React, { useState } from 'react'
 import { useEffect } from 'react';
 import DataTable from 'react-data-table-component';
 import { Link } from 'react-router-dom'
 
 const Productos = () =>{
-
+    //Declaracion de variables de estado para cada uno de los campos de la tabla de Productos en base de datos
     const [cod_producto, setCod_producto] = useState('');
     const [id_categoria, setId_categoria] = useState(0);
     const [marca, setMarca] = useState('');
@@ -21,9 +22,12 @@ const Productos = () =>{
     const [fecha_alta, setFecha_alta] = useState('2023-08-03 10:00:00');
     const [fotografia, setFotografia] = useState('');
 
+    //Declaracion de variable de estado para mostrar los productos que se encuentran en la base de datos
     const [data, setData] = useState([])
 
+    //Metodo HandleAdd este nos sirve para dar de alta productos nuevos
     const handleAdd = () =>{
+        //Formato de importacion JavaScript-Fetch que nos arroja postman y se asignan las variables de estado
         var formdata = new FormData();
         formdata.append("cod_producto", cod_producto);
         formdata.append("id_categoria", id_categoria);
@@ -48,13 +52,15 @@ const Productos = () =>{
         method: 'POST',
         body: formdata
         };
-
+        //API POST
         fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS/", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error));
     }
 
+    //Metodo ShowData nos ayuda a traer todos los productos registrados en la base de datos (GET)
+    //Api GET
     const showData =  () =>{
         fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
         .then(response => response.json())
@@ -63,7 +69,8 @@ const Productos = () =>{
     }
     
         
-
+    //Metodo handleDelete nos ayuda a eliminar un producto de la base de datos con un id especifico (DELETE)
+    //Api DELETE
     const handleDelete = (id_producto) =>{
         var requestOptions = {
             method: 'DELETE',
@@ -77,6 +84,7 @@ const Productos = () =>{
             .catch(error => console.log('error', error));
     }
 
+    //UseEffect para que nos muestre los productos
     useEffect(() => {
       showData()
     }, [])
@@ -144,6 +152,7 @@ const Productos = () =>{
     },
    ]
 
+   //Estilos de la vista (se basa en colores)
     const amarillo={
         background:'#ffde59'
       }
@@ -163,6 +172,7 @@ const Productos = () =>{
 
     return (
         <>
+        {/* Inicio de contenido  */}
 <div className='content-wrapper '>
   <section className="content-header">
              <div className="container-fluid">
@@ -179,6 +189,7 @@ const Productos = () =>{
                  </div>
                 </div>
   </section>
+  {/* Creacion de formulario para insertar un nuevo producto  */}
 <section className="content">
         <div className="card ">
             <div className="card-header" style={cafe}>
@@ -189,6 +200,7 @@ const Productos = () =>{
                     </button>
                 </div>
             </div>
+            {/* Se llama OnChange para que se tomen los valores que se estan obteniendo de los input y se utiliza los set  */}
                 <div className="card-body" style={amarillo}>
                     <div className="row">
                             <div className="col-4">
@@ -291,10 +303,13 @@ const Productos = () =>{
                     <Link to='/Home' className="btn btn-secondary">
                         Cancelar
                     </Link>
+                    {/* llamada del metodo handleAdd con el evento onClick esto para mandar a base de datos el registro de un producto mediante la api */}
                     <button className="btn submited float-right" style={cafe}><b style={letras} onClick={()=>handleAdd()}> Aceptar </b></button>
                 </div>
             </div>
  <div>
+    {/* fin del formuario */}
+    {/* incio de la creacion de tabla  */}
         <table className="table table-bordered table-striped table-hover" id='table_Prod'>
                     <thead style={cafe}>
                     <tr>
@@ -319,6 +334,8 @@ const Productos = () =>{
                         </tr>
                         </thead>
                         <tbody style={amarillo}>
+                            
+                        {/* uso del state “data” que es el que contiene todos los registros, ya que es un arreglo, se utiliza el método “map” para poder acceder a cada registro y poder imprimir en pantalla los datos.  */}
                         {data.map((productos) => (
                         <tr key={productos.id_producto}>
                             <td>{productos.id_producto}</td>
@@ -338,8 +355,10 @@ const Productos = () =>{
                             <td>{productos.fecha_alta}</td>
                             <td>{productos.fotografia}</td>
                             <td >
+                                {/* Llamado al metodo handleDelte el cual nos ayuda a eliminar un producto existente median un id especifico */}
                                 <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(productos.id_producto)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
-                                
+
+                                {/* Se manda a traer una ruta a la cual se le pasa el id del producto seleccionado, al dar clic este redirige a una nueva vista que es de actualizar */}
                                 <button className='btn col-lg-4 offset-md-1 '> <Link to={`/producto_actualizar/${productos.id_producto}`} className=""><i className="fas fa-pen" style={icon}></i></Link></button>
                                 
                             

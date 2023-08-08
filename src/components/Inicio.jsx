@@ -1,4 +1,5 @@
 import React from 'react'
+/* Importamos imagenes */
 import Mu1 from '../assets/mueble1.jpg'
 import Mu2 from '../assets/mueble2.jpg'
 import Mu3 from '../assets/mueble3.jpg'
@@ -27,6 +28,7 @@ export const Inicio = () => {
         <section className="content-header">
         <div className="col-md-12">
           <div className="d-flex justify-content-center align-items-center" style={{height: "100vh"}}>
+            {/* Inicia carrusel */}
             
               <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel">
                 <ol className="carousel-indicators">
@@ -34,6 +36,8 @@ export const Inicio = () => {
                   <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                   <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                 </ol>
+
+                {/* colocacion de imagens */}
               <div className="carousel-inner">
                 <div className="carousel-item active">
                  <img className="d-block w-100" src={Mu1} alt="First slide"/>

@@ -1,13 +1,15 @@
+/* Importacion de librerias o elementos de react */
 import React, { useEffect } from 'react'
 import { useState } from 'react';
 import { Link } from 'react-router-dom'
 
 const Categorias = () => {
-
+    //Declaracion de variables de estado para cada uno de los campos de la tabla de  Categorias en base de datos
     const [codigo, setCodigo] = useState('');
     const [tipo, setTipo] = useState('');
     const [fecha_alta, setFecha_alta] = useState('2023-08-03 10:00:00')
 
+    //Metodo HandleAdd este nos sirve para dar de alta categorias nuevas
     const handleAdd = () =>{
       var formdata = new FormData();
       formdata.append("codigo", codigo);
@@ -26,8 +28,11 @@ const Categorias = () => {
         .catch(error => console.log('error', error));
     }
 
+    //Declaracion de variable de estado para mostrar las catregorias que se encuentran en la base de datos
     const [data, setData] = useState([])
 
+    //Metodo ShowCate nos ayuda a traer todas las categorias registrados en la base de datos (GET)
+    //Api GET
     const showCate = () =>{
       fetch("http://localhost/prueba_1/index.php/Api/CATEGORIA")
         .then(response => response.json())
@@ -35,12 +40,14 @@ const Categorias = () => {
         .catch(error => console.log('error', error));
     }
 
+    //UseEffect para que nos muestre las categorias
     useEffect(() => {
       showCate();
     }, [])
     
         
-
+    //Metodo handleDelete nos ayuda a eliminar una categoria de la base de datos con un id especifico (DELETE)
+    //Api DELETE
     const handleDelete = (id_categoria) =>{
       var requestOptions = {
         method: 'DELETE',
@@ -54,6 +61,7 @@ const Categorias = () => {
         .catch(error => console.log('error', error));
     }
     
+    /* Estilos de colores */
     const amarillo={
       background:'#ffde59'
     }
@@ -71,6 +79,7 @@ const Categorias = () => {
     }
     return (
       <>
+      {/* Inicio de contenido  */}
       <div className='content-wrapper'>
       <section className="content-header">
         <div className="container-fluid">
@@ -87,7 +96,7 @@ const Categorias = () => {
           </div>
         </div>
       </section>
-  
+  {/* Creacion de formulario para insertar una categoria  */}
       <section className='content'>
        
       <div className="card ">
@@ -100,6 +109,7 @@ const Categorias = () => {
               </button>
             </div>
           </div>
+          {/* Se llama OnChange para que se tomen los valores que se estan obteniendo de los input y se utiliza los set  */}
           <div className="card-body" style={amarillo}>
             <div className='form-group'>
                   <label htmlFor="">Código de Categoria</label>
@@ -118,10 +128,13 @@ const Categorias = () => {
             <Link to='/Home' className="btn btn-secondary">
               Cancelar
             </Link>
+            {/* llamada del metodo handleAdd con el evento onClick esto para mandar a base de datos el registro de una categoriamediante la api */}
             <button className="btn submited float-right" style={cafe}><b style={letras} onClick={()=>handleAdd()}> Aceptar </b></button>
           </div>
         </div>
       </section>
+       {/* fin del formuario */}
+    {/* incio de la creacion de tabla  */}
       <section className='content'>
           <table className="table table-bordered table-striped table-hover" id='table_Cat'>
               <thead style={cafe}>
@@ -134,6 +147,7 @@ const Categorias = () => {
                   </tr>
               </thead>
               <tbody style={amarillo}>
+                {/* uso del state “data” que es el que contiene todos los registros, ya que es un arreglo, se utiliza el método “map” para poder acceder a cada registro y poder imprimir en pantalla los datos.  */}
                   {data.map((cate)=>(
                     <tr key={cate.id_categoria}>
                       <td>{cate.id_categoria}</td>
@@ -141,8 +155,10 @@ const Categorias = () => {
                       <td>{cate.tipo}</td>
                       <td>{cate.fecha_alta}</td>
                       <td >
+                        {/* Llamado al metodo handleDelte el cual nos ayuda a eliminar una categoria existente median un id especifico */}
                         <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(cate.id_categoria)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
                         
+                        {/* Se manda a traer una ruta a la cual se le pasa el id de la categoria seleccionada, al dar clic este redirige a una nueva vista que es de actualizar */}
                         <button className='btn col-lg-4 offset-md-1 '> <Link to={`/categoria_actualizar/${cate.id_categoria}`} className=""><i className="fas fa-pen" style={icon}></i></Link></button>
                       </td>
                     </tr>

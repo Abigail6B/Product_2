@@ -3,8 +3,11 @@ import React, { useEffect, useState } from 'react'
 
 function Productos_geren() {
 
+  //Declaracion de variable de estado para mostrar los productos
   const [data, setData] = useState([]);    
 
+  //Metodo ShowProd nos ayuda a traer todas los productos registrados en la base de datos (GET)
+    //Api GET
   const showProd = () =>{
     fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
         .then(response => response.json())
@@ -12,6 +15,7 @@ function Productos_geren() {
         .catch(error => console.log('error', error));
   }
 
+  //UseEffect para que nos muestre los productos
   useEffect(() => {
     showProd();
   }, [])
@@ -21,7 +25,7 @@ function Productos_geren() {
         
     
     
-
+/* Estilos para el frontend de categorias  */
   const amarillo={
     background:'#ffde59'
   }
@@ -49,7 +53,7 @@ function Productos_geren() {
             </div>
           </div>
         </section>
-
+ {/* incio de la creacion de tabla  */}
         <section className="content">
           <div className="card">
             <div className="card-body card-info">
@@ -76,6 +80,7 @@ function Productos_geren() {
 
                   </tr>
                 </thead>
+                {/* uso del state “data” que es el que contiene todos los registros, ya que es un arreglo, se utiliza el método “map” para poder acceder a cada registro y poder imprimir en pantalla los datos.  */}
                 <tbody style={amarillo}>
                 {data.map((productos) => (
                   <tr key={productos.id_producto}>

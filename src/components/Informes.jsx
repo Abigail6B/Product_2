@@ -6,9 +6,11 @@ import { Bar } from 'react-chartjs-2'
 
 const Informes = () => {
     
+     //Declaracion de variables de estado para cada uno de los campos de la tabla de producros en base de datos
     const [producto, setProducto] = useState([])
     const [piezas, setPiezas] = useState([])
     
+    /* Se empieza a contrir el grafico con el data, se le da color y los atributos que va a llevar */
     const data ={
         labels : producto,
         datasets:[{
@@ -22,12 +24,14 @@ const Informes = () => {
         }]
     };
 
+    /* Adsignacion de si es responsive, etc */
     const opciones ={
         maintainAspectRatio: false,
         responsive: true
     }
 
    
+    /* Metodo para mostrar todos los productos junto con su numero de piezas */
     const showProduct = () =>{
         fetch("http://localhost/prueba_1/index.php/Api/PRODUCTOS")
         .then(response => response.json())
@@ -45,6 +49,7 @@ const Informes = () => {
 
     }
 
+    /* Nos ayuda a traer los datos de productos */
     useEffect(() => {
       showProduct();
     }, [])
@@ -53,7 +58,7 @@ const Informes = () => {
     
   
         
-
+/* Estilos para el frontend */
     const amarillo={
         background:'#ffde59'
       }
@@ -92,6 +97,7 @@ const Informes = () => {
                         </div>
                     </div>
                 </section>
+                {/* Creacion de grafica mediante la etiqueta bar */}
                 <div className="container">
                             <div className="card card-success">
                                 <div className="card-header" style={cafe}>

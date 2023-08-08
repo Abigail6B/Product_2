@@ -145,7 +145,7 @@ const Usuarios = () => {
             </div>
             </div>
 
-          
+           {/* Creacion de formulario para insertar un usuario  */}
             <div className="card ">
                 <div className="card-header" style={cafe}>
                 <h3 className="card-title" style={letras}><i className="fas fa-plus-square" style={letras}></i>Registro de Usuarios</h3>
@@ -156,6 +156,7 @@ const Usuarios = () => {
                     </button>
                 </div>
                 </div>
+                 {/* Se llama OnChange para que se tomen los valores que se estan obteniendo de los input y se utiliza los set  */}
                 <div className="card-body" style={amarillo}>
                     <div className="row">
                             <div className="col-4">
@@ -253,11 +254,13 @@ const Usuarios = () => {
                     
                 </div>
                 <div className="card-footer">
+                    {/* llamada del metodo handleAdd con el evento onClick esto para mandar a base de datos el registro de un usuario mediante la api */}
                     <Link to='/Home' className="btn btn-secondary">Cancelar</Link>
                     <button className="btn submited float-right" style={cafe} onClick={ ()=> handleAdd() }>Aceptar</button>
                 </div>
             </div>
-            
+             {/* fin del formuario */}
+    {/* incio de la creacion de tabla  */}
 
 <div>
         <table className="table table-bordered table-striped table-hover" id='table_User'>
@@ -275,6 +278,7 @@ const Usuarios = () => {
                 </tr>
             </thead>
             <tbody style={rosa}>
+                {/* uso del state “usu” que es el que contiene todos los registros, ya que es un arreglo, se utiliza el método “map” para poder acceder a cada registro y poder imprimir en pantalla los datos.  */}
                 { usu.map((u) =>(
                         <tr key={u.id_usuario}>
                             <td>{u.id_usuario}</td>
@@ -286,7 +290,10 @@ const Usuarios = () => {
                             <td>{u.fotografia}</td>
                             <td>{u.fecha_alta}</td>
                             <td>
+                                {/* Llamado al metodo handleDelte el cual nos ayuda a eliminar un usuario existente median un id especifico */}
                             <button className='btn col-lg-4 offset-md-1' onClick={()=>handleDelete(u.id_usuario)}><i className="fas fa-trash-alt " alt="bote de basura" style={icon}></i></button>
+                            
+                            {/* Se manda a traer una ruta a la cual se le pasa el id del usuario seleccionada, al dar clic este redirige a una nueva vista que es de actualizar */}
                             <button className='btn col-lg-4 offset-md-1 '> <Link to={`/usuario_actualizar/${u.id_usuario}`} className=""><i className="fas fa-pen" style={icon}></i></Link></button>
                             </td>
                         </tr>

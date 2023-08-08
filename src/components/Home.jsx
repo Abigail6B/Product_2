@@ -63,6 +63,7 @@ const Home = () => {
     <img src={DAF} width="180" height="180" />
   </div>
   <div className="card" >
+    {/* Se llama OnChange para que se tomen los valores que se estan obteniendo de los input y se utiliza los set*/}
     <div className="card-body login-card-body " style={amarillo}>
       <p className="login-box-msg" style={letras}><b> ¡Bienvenido inicia sesion! </b></p>
 
@@ -86,6 +87,7 @@ const Home = () => {
         </div>
         <div className="row ">
           <div className="col-12">
+            {/* llamada del metodo handleLogin con el evento onClick esto para mandar ver si algun usuario coincide con lo que se escribieron en los inpus*/}
             <button  className="btn  btn-block" style={cafe}> <b style={letras}
             onClick={()=> handleLogin()}
            > Iniciar sesion </b></button>

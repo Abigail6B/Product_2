@@ -18,11 +18,13 @@ export const Content = () => {
         color:'#FFFF'
     }
 
+    //Declaracion de variables de estado para cada uno de los campos de la tabla de Entradas y salidas en base de datos
     const [id_producto, setId_producto] = useState('');
     const [tipo, setTipo] = useState('');
     const [fecha, setFecha] = useState('');
     const [listaP, setListaP] = useState([]);
 
+    //metodo para guardar entradas y salidas
     const handleAddES= () =>{
         var formdata = new FormData();
                 formdata.append("tipo", tipo);
@@ -99,7 +101,7 @@ export const Content = () => {
         </section>
 
         <section className="content">
-
+    {/* Creacion de formulario para insertar una entrada o salida  */}
         <div className="card" >
             <div className="card-header" style={cafe}>
             <h3 className="card-title" style={letras}><i className="fas fa-plus-square" style={letras}></i> Registro de entradas y salidas</h3>
@@ -113,6 +115,7 @@ export const Content = () => {
                 </button>
             </div>
             </div>
+            {/* Se llama OnChange para que se tomen los valores que se estan obteniendo de los input y se utiliza los set  */}
             <div className="card-body " style={amarillo}>
                 <div className="row">
                         <div className="form-group col-4">
@@ -148,12 +151,14 @@ export const Content = () => {
                         </div>
                 </div>
             </div>
+            {/* llamada del metodo handleAddEs con el evento onClick esto para mandar a base de datos el registro de un usuario mediante la api */}
             <div className="card-footer">
                 <button className="btn submited float-right" style={cafe}> <b style={letras} onClick={ ()=> handleAddES() }> Aceptar</b></button>
             </div>
         </div>
 
-        
+        {/* fin del formuario */}
+    {/* incio de la creacion de tabla  */}
         <div className="card">
             <div className="card-body card-info">
                 <table className="table table-bordered table-hover table-striped" id="table_ensal">
@@ -167,6 +172,7 @@ export const Content = () => {
                         </tr>
                     </thead>
                     <tbody className="text-center">
+                         {/* uso del state “listaEs” que es el que contiene todos los registros, ya que es un arreglo, se utiliza el método “map” para poder acceder a cada registro y poder imprimir en pantalla los datos.  */}
                         {
                             listaES.map((es) =>(
                                 <tr style={amarillo}>
@@ -175,9 +181,11 @@ export const Content = () => {
                                     <td>{es.id_producto}</td>
                                     <td>{es.fecha}</td>
                                     <td>
+                                        {/* Llamado al metodo handleDelte el cual nos ayuda a eliminar una entrada o salida existente median un id especifico */}
                                          <button className='btn col-lg-4 offset-md-1'><i className="fas fa-trash-alt " alt="bote de basura" style={icon}
                                          onClick={()=>handleDeleteES(es.id_registro)}></i></button>
                                          
+                                         {/* Se manda a traer una ruta a la cual se le pasa el id de la entrada o salida seleccionada, al dar clic este redirige a una nueva vista que es de actualizar */}
                                          <button className='btn col-lg-4 offset-md-1 '> <Link to={`/entsal_actualizar/${es.id_registro}`} className=""><i className="fas fa-pen" style={icon}></i></Link></button>
                                     </td>
                                 </tr>
