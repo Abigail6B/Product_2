@@ -24,7 +24,7 @@ export const SidebarG = () => {
         <div className="image">
         </div>
         <div className="Black">
-          <a href="#" className="d-block" style={letras}><img src={user} alt="" width="60" height="60"/>Paulo Daniel Vazquez Mora</a>
+          <a href="#" className="d-block" style={letras}><img src={user} alt="" width="60" height="60"/>Gerente</a>
         </div>
       </div>
 
@@ -66,7 +66,7 @@ export const SidebarG = () => {
             </Link>
           </li>
           <li className="nav-item">
-            <Link to="/Informes" className="nav-link">
+            <Link to="/Informes_gerencia" className="nav-link">
               <i style={letras} className="fas fa-chart-bar"></i>
               <p style={letras}>
                 Informes

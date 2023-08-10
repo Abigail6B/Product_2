@@ -23,6 +23,8 @@ import Prodge_view from './components/Prodge_view';
 import {Catge_} from './components/Catge_'
 import { Esgeren } from './components/Esgeren'
 import InicioG_view from './components/InicioG_view';
+import { InformesG_view } from './components/InformesG_view';
+
 //Jefe
 import InicioJ_view from './components/InicioJ_view';
 import ProductosJ_view from './components/ProductosJ_view';
@@ -55,6 +57,8 @@ function App() {
         <Route path='/categoria_gerencia' element={ <Catge_ /> }  />
         <Route path='/entradas_salidas_gerencia' element={ <Esgeren /> }  />
         <Route path='/Productos_Gerencia' element={<Prodge_view/>}/>
+        <Route path='/Informes_gerencia' element={<InformesG_view/>}/>
+
         
         {/* rutas de operador */}
         <Route path='/HomeO' element={<InicioO_view/>} />

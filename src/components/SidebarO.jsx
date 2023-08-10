@@ -24,7 +24,7 @@ export const SidebarO = () => {
         <div className="image">
         </div>
         <div className="Black">
-          <a href="#" className="d-block" style={letras}><img src={user} alt="" width="60" height="60"/>Paulo Daniel Vazquez Mora</a>
+          <a href="#" className="d-block" style={letras}><img src={user} alt="" width="60" height="60"/>Operador</a>
         </div>
       </div>
 
